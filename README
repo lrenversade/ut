@@ -1,0 +1,11 @@
+UT Library
+==========
+
+This is a collection of general-purpose C utilities.
+
+The library includes functions for: memory allocation and free'ing,
+operations on arrays, operations on vectors and matrices,
+geometrical transformations, etc.
+
+The library tends to be documented using doxygen, hence the `config'
+file in the root directory. The documentation is quite sparse, though.

@@ -1,0 +1,6 @@
+# local files and directories
+*~
+.*.swp
+html
+latex
+build

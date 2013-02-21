@@ -6,6 +6,8 @@
 #include<stdio.h>
 #include<sys/wait.h>
 #include<sys/time.h>
+#include<sys/stat.h>
+#include<errno.h>
 #include<signal.h>
 #include<string.h>
 #include<float.h>
@@ -67,4 +69,35 @@ ut_sys_runwtime (char* exec, char *command, double t)
   ut_free_2d_char (list, qty + 1);
 
   return status;
+}
+
+int
+ut_sys_mkdirp (const char *dir)
+{
+  int status;
+  char tmp[1000];
+  char *p = NULL;
+  size_t len;
+
+  snprintf (tmp, sizeof (tmp), "%s", dir);
+  len = strlen (tmp);
+  if (tmp[len - 1] == '/')
+    tmp[len - 1] = 0;
+  for (p = tmp + 1; *p; p++)
+    if (*p == '/')
+    {
+      *p = 0;
+      mkdir (tmp, S_IRWXU | S_IRGRP | S_IXGRP);
+      *p = '/';
+    }
+
+  status = mkdir (tmp, S_IRWXU | S_IRGRP | S_IXGRP);
+
+  if (status && errno != EEXIST)
+  {
+    ut_print_message (2, 2, "%s cannot be created.\n", dir);
+    abort ();
+  }
+
+  return 0;
 }

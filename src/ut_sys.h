@@ -2,3 +2,4 @@
 /* see the COPYING file in the top-level directory.*/
 
 extern int ut_sys_runwtime (char*, char*, double);
+extern int ut_sys_mkdirp (const char *dir);

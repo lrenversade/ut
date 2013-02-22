@@ -68,7 +68,8 @@ ut_array_2d_add (double **a, double **b, int size1, int size2, double **c)
 }
 
 void
-ut_array_3d_add (double ***a, double ***b, int size1, int size2, int size3, double ***c)
+ut_array_3d_add (double ***a, double ***b, int size1, int size2, int size3,
+		 double ***c)
 {
   int i, j, k;
 
@@ -81,7 +82,8 @@ ut_array_3d_add (double ***a, double ***b, int size1, int size2, int size3, doub
 }
 
 void
-ut_array_3d_add_float (float ***a, float ***b, int size1, int size2, int size3, float ***c)
+ut_array_3d_add_float (float ***a, float ***b, int size1, int size2,
+		       int size3, float ***c)
 {
   int i, j, k;
 
@@ -284,7 +286,7 @@ ut_array_1d_float_fprintf (FILE * file, float *a, int size, char *format)
 }
 
 int
-ut_array_2d_fscanf (FILE* file, double** a, int d1, int d2)
+ut_array_2d_fscanf (FILE * file, double **a, int d1, int d2)
 {
   int i, j, res = 0;
 
@@ -296,52 +298,53 @@ ut_array_2d_fscanf (FILE* file, double** a, int d1, int d2)
 }
 
 int
-ut_array_1d_fscanfn (char* filename, double* a, int d1)
+ut_array_1d_fscanfn (char *filename, double *a, int d1)
 {
-  FILE* file = NULL;
+  FILE *file = NULL;
   int status;
 
   file = ut_file_open (filename, "r");
   status = ut_array_1d_fscanf (file, a, d1);
   ut_file_close (file, filename, "r");
-  
+
   return status;
 }
 
 int
-ut_array_2d_fscanfn (char* filename, double** a, int d1, int d2)
+ut_array_2d_fscanfn (char *filename, double **a, int d1, int d2)
 {
-  FILE* file = NULL;
+  FILE *file = NULL;
   int status;
 
   file = ut_file_open (filename, "r");
   status = ut_array_2d_fscanf (file, a, d1, d2);
   ut_file_close (file, filename, "r");
-  
+
   return status;
 }
 
 int
-ut_array_2d_fscanfn_wcard (char* filename, double** a, int d1, int d2, char* wcard)
+ut_array_2d_fscanfn_wcard (char *filename, double **a, int d1, int d2,
+			   char *wcard)
 {
   // if file not found and filename is a number, fill the array with
   // this number.
   if (ut_string_inlist (wcard, ',', "numeral") == 1
-   && ut_file_exist (filename) == 0
-   && ut_string_format_strcmp (filename, "%s") != 0)
+      && ut_file_exist (filename) == 0
+      && ut_string_format_strcmp (filename, "%s") != 0)
   {
     double val;
     sscanf (filename, "%lf", &val);
     ut_array_2d_set (a, d1, d2, val);
   }
-  
+
   // if file not found and filename is a colour, fill the array with
   // this colour.
   else if (ut_string_inlist (wcard, ',', "colour") == 1
-   && ut_file_exist (filename) == 0
-   && ut_color_name_valid (filename) == 1)
+	   && ut_file_exist (filename) == 0
+	   && ut_color_name_valid (filename) == 1)
   {
-    int* val = ut_alloc_1d_int (3);
+    int *val = ut_alloc_1d_int (3);
     ut_color_name_rgb (filename, val);
 
     int i, j;
@@ -359,7 +362,7 @@ ut_array_2d_fscanfn_wcard (char* filename, double** a, int d1, int d2, char* wca
     if (ut_string_inlist (wcard, ',', "size") == 1)
       ut_file_nbwords_testwmessage (filename, d1 * d2);
 
-    FILE* file = NULL;
+    FILE *file = NULL;
     file = ut_file_open (filename, "r");
     ut_array_2d_fscanf (file, a, d1, d2);
     ut_file_close (file, filename, "r");
@@ -369,19 +372,19 @@ ut_array_2d_fscanfn_wcard (char* filename, double** a, int d1, int d2, char* wca
 }
 
 int
-ut_array_1d_fscanfn_wcard (char* filename, double* a, int d1, char* wcard)
+ut_array_1d_fscanfn_wcard (char *filename, double *a, int d1, char *wcard)
 {
   // if file not found and filename is a number, fill the array with
   // this number.
   if (ut_string_inlist (wcard, ',', "numeral") == 1
-   && ut_file_exist (filename) == 0
-   && ut_string_format_strcmp (filename, "%s") != 0)
+      && ut_file_exist (filename) == 0
+      && ut_string_format_strcmp (filename, "%s") != 0)
   {
     double val;
     sscanf (filename, "%lf", &val);
     ut_array_1d_set (a, d1, val);
   }
-  
+
   else
   {
     // check that the file does not have more data than goes in the
@@ -389,7 +392,7 @@ ut_array_1d_fscanfn_wcard (char* filename, double* a, int d1, char* wcard)
     if (ut_string_inlist (wcard, ',', "size") == 1)
       ut_file_nbwords_testwmessage (filename, d1);
 
-    FILE* file = NULL;
+    FILE *file = NULL;
     file = ut_file_open (filename, "r");
     ut_array_1d_fscanf (file, a, d1);
     ut_file_close (file, filename, "r");
@@ -416,7 +419,8 @@ ut_array_1d_int_fprintf (FILE * file, int *a, int size, char *format)
 }
 
 int
-ut_array_1d_uint_fprintf (FILE * file, unsigned int *a, int size, char *format)
+ut_array_1d_uint_fprintf (FILE * file, unsigned int *a, int size,
+			  char *format)
 {
   int i, res;
 
@@ -434,7 +438,7 @@ ut_array_1d_uint_fprintf (FILE * file, unsigned int *a, int size, char *format)
 
 int
 ut_array_2d_fprintf (FILE * file, double **a, int size1, int size2,
-			 char *format)
+		     char *format)
 {
   int i, j, res;
 
@@ -453,6 +457,33 @@ ut_array_2d_fprintf (FILE * file, double **a, int size1, int size2,
 
   return res;
 }
+
+
+int
+ut_array_2d_fprintf_col (FILE * file, double **a, int size1, int size2,
+			 int *cols, int colqty, char *format)
+{
+  int i, j, res;
+
+  for (j = 0; j < colqty; ++j)
+    if (cols[j] > size2 - 1)
+      abort ();
+
+  res = 0;
+  for (i = 0; i < size1; i++)
+  {
+    for (j = 0; j < colqty; ++j)
+    {
+      res = fprintf (file, format, a[i][cols[j]]);
+      res = fprintf (file, (cols[j + 1] != -1) ? " " : "");
+    }
+    res = fprintf (file, "\n");
+  }
+
+  return res;
+}
+
+
 
 int
 ut_array_2d_int_fprintf (FILE * file, int **a, int size1, int size2,
@@ -477,8 +508,8 @@ ut_array_2d_int_fprintf (FILE * file, int **a, int size1, int size2,
 }
 
 int
-ut_array_3d_int_fprintf (FILE * file, int ***a, int size1, int size2, int size3,
-			 char *format)
+ut_array_3d_int_fprintf (FILE * file, int ***a, int size1, int size2,
+			 int size3, char *format)
 {
   int i, res = 0;
 
@@ -492,8 +523,8 @@ ut_array_3d_int_fprintf (FILE * file, int ***a, int size1, int size2, int size3,
 }
 
 int
-ut_array_2dns_int_fprintf (FILE * file, int **a, int size1, int* size2,
-			 char *format)
+ut_array_2dns_int_fprintf (FILE * file, int **a, int size1, int *size2,
+			   char *format)
 {
   int i, j, res;
 
@@ -515,7 +546,7 @@ ut_array_2dns_int_fprintf (FILE * file, int **a, int size1, int* size2,
 
 int
 ut_array_2d_float_fprintf (FILE * file, float **a, int size1, int size2,
-		     char *format)
+			   char *format)
 {
   int i, j, res;
 
@@ -606,7 +637,7 @@ ut_array_1d_gmean (double *a, int size)
 
   for (i = 0; i < size; i++)
     mean *= a[i];
-  mean = pow (mean, 1./size);
+  mean = pow (mean, 1. / size);
 
   return mean;
 }
@@ -704,8 +735,7 @@ ut_array_2d_stddev (double **a, double mean, int size1, int size2)
 }
 
 double
-ut_array_3d_stddev (double ***a, double mean, int size1, int size2, int
-    size3)
+ut_array_3d_stddev (double ***a, double mean, int size1, int size2, int size3)
 {
   int i, j, k;
   double stddev;
@@ -726,7 +756,7 @@ ut_array_3d_stddev (double ***a, double mean, int size1, int size2, int
 
 double
 ut_array_3d_int_stddev (int ***a, double mean, int size1, int size2, int
-    size3)
+			size3)
 {
   int i, j, k;
   double stddev;
@@ -746,8 +776,8 @@ ut_array_3d_int_stddev (int ***a, double mean, int size1, int size2, int
 }
 
 double
-ut_array_3d_ushort_stddev (unsigned short ***a, double mean, int size1, int size2, int
-    size3)
+ut_array_3d_ushort_stddev (unsigned short ***a, double mean, int size1,
+			   int size2, int size3)
 {
   int i, j, k;
   double stddev;
@@ -767,8 +797,8 @@ ut_array_3d_ushort_stddev (unsigned short ***a, double mean, int size1, int size
 }
 
 double
-ut_array_3d_uchar_stddev (unsigned char ***a, double mean, int size1, int size2, int
-    size3)
+ut_array_3d_uchar_stddev (unsigned char ***a, double mean, int size1,
+			  int size2, int size3)
 {
   int i, j, k;
   double stddev;
@@ -788,7 +818,8 @@ ut_array_3d_uchar_stddev (unsigned char ***a, double mean, int size1, int size2,
 }
 
 float
-ut_array_3d_float_stddev (float ***a, float mean, int size1, int size2, int size3)
+ut_array_3d_float_stddev (float ***a, float mean, int size1, int size2,
+			  int size3)
 {
   int i, j, k;
   float stddev;
@@ -1014,8 +1045,8 @@ ut_array_2d_float_min (float **a, int size1, int size2)
   min = a[0][0];
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
-    if (a[i][j] < min)
-      min = a[i][j];
+      if (a[i][j] < min)
+	min = a[i][j];
 
   return min;
 }
@@ -1032,8 +1063,8 @@ ut_array_2d_float_max (float **a, int size1, int size2)
   max = a[0][0];
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
-    if (a[i][j] > max)
-      max = a[i][j];
+      if (a[i][j] > max)
+	max = a[i][j];
 
   return max;
 }
@@ -1050,8 +1081,8 @@ ut_array_2d_min (double **a, int size1, int size2)
   min = a[0][0];
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
-    if (a[i][j] < min)
-      min = a[i][j];
+      if (a[i][j] < min)
+	min = a[i][j];
 
   return min;
 }
@@ -1069,8 +1100,8 @@ ut_array_3d_min (double ***a, int size1, int size2, int size3)
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
       for (k = 0; k < size3; k++)
-      if (a[i][j][k] < min)
-	min = a[i][j][k];
+	if (a[i][j][k] < min)
+	  min = a[i][j][k];
 
   return min;
 }
@@ -1088,8 +1119,8 @@ ut_array_3d_int_min (int ***a, int size1, int size2, int size3)
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
       for (k = 0; k < size3; k++)
-      if (a[i][j][k] < min)
-	min = a[i][j][k];
+	if (a[i][j][k] < min)
+	  min = a[i][j][k];
 
   return min;
 }
@@ -1107,8 +1138,8 @@ ut_array_3d_ushort_min (unsigned short ***a, int size1, int size2, int size3)
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
       for (k = 0; k < size3; k++)
-      if (a[i][j][k] < min)
-	min = a[i][j][k];
+	if (a[i][j][k] < min)
+	  min = a[i][j][k];
 
   return min;
 }
@@ -1126,8 +1157,8 @@ ut_array_3d_uchar_min (unsigned char ***a, int size1, int size2, int size3)
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
       for (k = 0; k < size3; k++)
-      if (a[i][j][k] < min)
-	min = a[i][j][k];
+	if (a[i][j][k] < min)
+	  min = a[i][j][k];
 
   return min;
 }
@@ -1145,8 +1176,8 @@ ut_array_3d_float_min (float ***a, int size1, int size2, int size3)
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
       for (k = 0; k < size3; k++)
-      if (a[i][j][k] < min)
-	min = a[i][j][k];
+	if (a[i][j][k] < min)
+	  min = a[i][j][k];
 
   return min;
 }
@@ -1163,8 +1194,8 @@ ut_array_2d_max (double **a, int size1, int size2)
   max = a[0][0];
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
-    if (a[i][j] > max)
-      max = a[i][j];
+      if (a[i][j] > max)
+	max = a[i][j];
 
   return max;
 }
@@ -1181,8 +1212,8 @@ ut_array_2d_absmax (double **a, int size1, int size2)
   max = fabs (a[0][0]);
   for (i = 0; i < size1; i++)
     for (j = 0; j < size2; j++)
-    if (a[i][j] > max)
-      max = fabs (a[i][j]);
+      if (a[i][j] > max)
+	max = fabs (a[i][j]);
 
   return max;
 }
@@ -1454,7 +1485,8 @@ ut_array_3d_ushort_mean (unsigned short ***a, int size1, int size2, int size3)
 }
 
 double
-ut_array_3d_ushort_gmean (unsigned short ***a, int size1, int size2, int size3)
+ut_array_3d_ushort_gmean (unsigned short ***a, int size1, int size2,
+			  int size3)
 {
   int i, j, k;
   double mean;
@@ -1516,7 +1548,7 @@ ut_array_1d_int_max (int *a, int size)
   int i, max;
 
   if (size <= 0)
-    abort();
+    abort ();
 
   max = a[0];
   for (i = 0; i < size; i++)
@@ -1533,7 +1565,7 @@ ut_array_1d_float_max (float *a, int size)
   float max;
 
   if (size <= 0)
-    abort();
+    abort ();
 
   max = a[0];
   for (i = 0; i < size; i++)
@@ -1598,7 +1630,8 @@ ut_array_2d_memcpy (double **dest, int size1, int size2, double **src)
 }
 
 void
-ut_array_3d_memcpy (double ***dest, int size1, int size2, int size3, double ***src)
+ut_array_3d_memcpy (double ***dest, int size1, int size2, int size3,
+		    double ***src)
 {
   int i, j, k;
 
@@ -1623,7 +1656,7 @@ ut_array_2d_int_memcpy (int **dest, int size1, int size2, int **src)
 }
 
 void
-ut_array_1d_pchar_memcpy (char** dest, int size1, char** src)
+ut_array_1d_pchar_memcpy (char **dest, int size1, char **src)
 {
   int i;
 
@@ -1637,7 +1670,8 @@ ut_array_1d_pchar_memcpy (char** dest, int size1, char** src)
 }
 
 void
-ut_array_3d_int_memcpy (int ***dest, int size1, int size2, int size3, int ***src)
+ut_array_3d_int_memcpy (int ***dest, int size1, int size2, int size3,
+			int ***src)
 {
   int i, j, k;
 
@@ -1650,7 +1684,8 @@ ut_array_3d_int_memcpy (int ***dest, int size1, int size2, int size3, int ***src
 }
 
 void
-ut_array_3d_uchar_memcpy (unsigned char ***dest, int size1, int size2, int size3, unsigned char ***src)
+ut_array_3d_uchar_memcpy (unsigned char ***dest, int size1, int size2,
+			  int size3, unsigned char ***src)
 {
   int i, j, k;
 
@@ -1663,7 +1698,8 @@ ut_array_3d_uchar_memcpy (unsigned char ***dest, int size1, int size2, int size3
 }
 
 void
-ut_array_3d_float_memcpy (float ***dest, int size1, int size2, int size3, float ***src)
+ut_array_3d_float_memcpy (float ***dest, int size1, int size2, int size3,
+			  float ***src)
 {
   int i, j, k;
 
@@ -1736,7 +1772,7 @@ ut_array_1d_int_sort_comp (const void *i, const void *j)
 void
 ut_array_1d_pchar_sort (char **array, int size)
 {
-  qsort (array, size, sizeof (char*), ut_array_1d_pchar_sort_comp);
+  qsort (array, size, sizeof (char *), ut_array_1d_pchar_sort_comp);
 
   return;
 }
@@ -1744,7 +1780,7 @@ ut_array_1d_pchar_sort (char **array, int size)
 int
 ut_array_1d_pchar_sort_comp (const void *i, const void *j)
 {
-  return strcmp (*(char **) i, *(char **)j);
+  return strcmp (*(char **) i, *(char **) j);
 }
 
 int
@@ -1776,10 +1812,10 @@ ut_array_1d_sort_index_comp (const void *a, const void *b)
 }
 
 void
-ut_array_1d_int_sort_index (int* array, int size, int* pos)
+ut_array_1d_int_sort_index (int *array, int size, int *pos)
 {
   int i;
-  int** x = ut_alloc_1d_pint (size);
+  int **x = ut_alloc_1d_pint (size);
 
   for (i = 0; i < size; ++i)
     x[i] = array + i;
@@ -1795,7 +1831,7 @@ ut_array_1d_int_sort_index (int* array, int size, int* pos)
 }
 
 void
-ut_array_1d_sort_index_perm (int* id, int size, int* perm)
+ut_array_1d_sort_index_perm (int *id, int size, int *perm)
 {
   int i, pos;
 
@@ -1811,7 +1847,7 @@ ut_array_1d_sort_index_perm (int* id, int size, int* perm)
 }
 
 void
-ut_array_1d_sort_perm (double* array, int size, int* perm)
+ut_array_1d_sort_perm (double *array, int size, int *perm)
 {
   ut_array_1d_sort_index (array, size, perm);
   ut_array_1d_sort_index_perm (perm, size, perm);
@@ -1820,10 +1856,10 @@ ut_array_1d_sort_perm (double* array, int size, int* perm)
 }
 
 void
-ut_array_1d_sort_index (double* array, int size, int* pos)
+ut_array_1d_sort_index (double *array, int size, int *pos)
 {
   int i;
-  double** x = ut_alloc_1d_pdouble (size);
+  double **x = ut_alloc_1d_pdouble (size);
 
   for (i = 0; i < size; ++i)
     x[i] = array + i;
@@ -1984,8 +2020,7 @@ ut_array_2d_view (double **array, int n1, int n2)
 }
 
 extern void
-ut_array_2d_int_switchlines (int **array, int colnb,
-			       int line1, int line2)
+ut_array_2d_int_switchlines (int **array, int colnb, int line1, int line2)
 {
   int i, tmp;
 
@@ -2001,7 +2036,7 @@ ut_array_2d_int_switchlines (int **array, int colnb,
 
 extern void
 ut_array_2d_int_switchlines_length (int **array, int line1, int col1,
-                                    int line2, int col2)
+				    int line2, int col2)
 {
   int i, tmp, colmin, colmax;
 
@@ -2052,8 +2087,7 @@ ut_array_2d_int_switchlines_length (int **array, int line1, int col1,
 }
 
 extern void
-ut_array_2d_switchlines (double **array, int colnb,
-			       int line1, int line2)
+ut_array_2d_switchlines (double **array, int colnb, int line1, int line2)
 {
   int i;
   double tmp = 0;
@@ -2343,7 +2377,7 @@ ut_array_1d_int_abs (int *data, int n)
 }
 
 void
-ut_array_1d_int_sgn (int *data, int n, int* sgn)
+ut_array_1d_int_sgn (int *data, int n, int *sgn)
 {
   int i;
 
@@ -2455,7 +2489,7 @@ ut_array_1d_int_eltpos (int *array, int size, int val)
 }
 
 int
-ut_array_1d_int_eltpos_all (int *array, int size, int val, int* pos)
+ut_array_1d_int_eltpos_all (int *array, int size, int val, int *pos)
 {
   int i, qty;
 
@@ -2471,7 +2505,7 @@ ut_array_1d_int_eltpos_all (int *array, int size, int val, int* pos)
 }
 
 int
-ut_array_1d_string_eltpos (char ** string, int size, char* val)
+ut_array_1d_string_eltpos (char **string, int size, char *val)
 {
   int i;
 
@@ -2502,16 +2536,16 @@ ut_array_2d_int_eltpos (int **array, int size1, int size2, int val,
 
   return -1;
 }
-      
+
 double
-ut_array_1d_valuepos (double* array, int size, double val)
+ut_array_1d_valuepos (double *array, int size, double val)
 {
   int i;
   double pos = -1;
 
   for (i = 0; i < size - 1; i++)
     if ((val >= array[i] && val <= array[i + 1])
-     || (val <= array[i] && val >= array[i + 1]))
+	|| (val <= array[i] && val >= array[i + 1]))
     {
       if (array[i + 1] - array[i] != 0)
 	pos = i + (val - array[i]) / (array[i + 1] - array[i]);
@@ -2520,12 +2554,12 @@ ut_array_1d_valuepos (double* array, int size, double val)
 
       break;
     }
-  
+
   return pos;
 }
 
 void
-ut_array_1d_int_uniq (int *array, int* psize)
+ut_array_1d_int_uniq (int *array, int *psize)
 {
   int i, size2;
 
@@ -2543,7 +2577,7 @@ ut_array_1d_int_uniq (int *array, int* psize)
 }
 
 void
-ut_array_1d_int_sort_uniq (int *array, int oldsize, int* psize)
+ut_array_1d_int_sort_uniq (int *array, int oldsize, int *psize)
 {
   ut_array_1d_int_sort (array, oldsize);
   (*psize) = oldsize;
@@ -2554,7 +2588,7 @@ ut_array_1d_int_sort_uniq (int *array, int oldsize, int* psize)
 
 
 void
-ut_array_1d_sub (double* data1, double* data2, int size, double* data)
+ut_array_1d_sub (double *data1, double *data2, int size, double *data)
 {
   int i;
 
@@ -2565,7 +2599,8 @@ ut_array_1d_sub (double* data1, double* data2, int size, double* data)
 }
 
 void
-ut_array_2d_sub (double** data1, double** data2, int size1, int size2, double** data)
+ut_array_2d_sub (double **data1, double **data2, int size1, int size2,
+		 double **data)
 {
   int i, j;
 
@@ -2577,8 +2612,8 @@ ut_array_2d_sub (double** data1, double** data2, int size1, int size2, double** 
 }
 
 void
-ut_array_1d_sample (double* b1, int nbl, double factor,
-                    double** pb2, int *pnbl2)
+ut_array_1d_sample (double *b1, int nbl, double factor,
+		    double **pb2, int *pnbl2)
 {
   int id;
   double factorinv = 1 / factor;
@@ -2603,8 +2638,8 @@ ut_array_1d_sample (double* b1, int nbl, double factor,
 }
 
 void
-ut_array_2d_sample (double** b1, int nbl, int nbc, double factor,
-                    double*** pb2, int *pnbl2)
+ut_array_2d_sample (double **b1, int nbl, int nbc, double factor,
+		    double ***pb2, int *pnbl2)
 {
   int id;
   double factorinv = 1 / factor;
@@ -2633,11 +2668,11 @@ ut_array_2d_sample (double** b1, int nbl, int nbc, double factor,
 }
 
 int
-ut_array_1d_fscanf_sample (FILE* file, int tsize, double factor, \
-                           double** pb, int* psize)
+ut_array_1d_fscanf_sample (FILE * file, int tsize, double factor,
+			   double **pb, int *psize)
 {
   int res;
-  double* data = ut_alloc_1d (tsize);
+  double *data = ut_alloc_1d (tsize);
 
   res = ut_array_1d_fscanf (file, data, tsize);
   ut_array_1d_sample (data, tsize, factor, pb, psize);
@@ -2648,11 +2683,11 @@ ut_array_1d_fscanf_sample (FILE* file, int tsize, double factor, \
 }
 
 int
-ut_array_2d_fscanf_sample (FILE* file, int tsize, int size2,
-                           double factor, double*** pb, int* psize)
+ut_array_2d_fscanf_sample (FILE * file, int tsize, int size2,
+			   double factor, double ***pb, int *psize)
 {
   int res;
-  double** data = ut_alloc_2d (tsize, size2);
+  double **data = ut_alloc_2d (tsize, size2);
 
   res = ut_array_2d_fscanf (file, data, tsize, size2);
   ut_array_2d_sample (data, tsize, size2, factor, pb, psize);
@@ -2708,7 +2743,8 @@ ut_array_2d_int_zero_be (int **array, int begX, int endX, int begY, int endY)
 }
 
 void
-ut_array_2d_float_zero_be (float **array, int begX, int endX, int begY, int endY)
+ut_array_2d_float_zero_be (float **array, int begX, int endX, int begY,
+			   int endY)
 {
   int i, j;
 
@@ -2747,7 +2783,7 @@ ut_array_1d_int_nbofthisval (int *array, int size, int val)
 
 void
 ut_array_1d_commonelts (int *array1, int size1,
-		        int *array2, int size2, int **pres, int* psize)
+			int *array2, int size2, int **pres, int *psize)
 {
   int i;
   int tmpqty;
@@ -2819,7 +2855,7 @@ ut_array_1d_int_deletencompress (int *array, int size, int value, int loop)
 }
 
 void
-ut_array_1d_int_memcpy_be (int* b, int *a, int bega, int enda)
+ut_array_1d_int_memcpy_be (int *b, int *a, int bega, int enda)
 {
   int i;
   int qty = enda - bega + 1;
@@ -2830,8 +2866,9 @@ ut_array_1d_int_memcpy_be (int* b, int *a, int bega, int enda)
   return;
 }
 
-void ut_array_1d_int_union (int* b1, int size1, int* b2, int size2,
-                            int* b3, int* psize3)
+void
+ut_array_1d_int_union (int *b1, int size1, int *b2, int size2,
+		       int *b3, int *psize3)
 {
 
   ut_array_1d_int_memcpy (b3, size1, b1);
@@ -2843,8 +2880,9 @@ void ut_array_1d_int_union (int* b1, int size1, int* b2, int size2,
   return;
 }
 
-void ut_array_1d_int_minus (int* b1, int size1, int* b2, int size2,
-                            int* b3, int size3)
+void
+ut_array_1d_int_minus (int *b1, int size1, int *b2, int size2,
+		       int *b3, int size3)
 {
   int i;
 
@@ -2860,13 +2898,13 @@ void ut_array_1d_int_minus (int* b1, int size1, int* b2, int size2,
 }
 
 void
-ut_array_1d_int_inter (int* b1, int b1qty, int* b2, int b2qty,
-		       int* b3, int* pb3qty)
+ut_array_1d_int_inter (int *b1, int b1qty, int *b2, int b2qty,
+		       int *b3, int *pb3qty)
 {
   int i;
-  int* inter = ut_alloc_1d_int (b1qty + b2qty);
+  int *inter = ut_alloc_1d_int (b1qty + b2qty);
   int qty = 0;
-  int* b2cpy = NULL;
+  int *b2cpy = NULL;
 
   if (b2 == b3)
   {
@@ -2892,11 +2930,11 @@ ut_array_1d_int_inter (int* b1, int b1qty, int* b2, int b2qty,
 }
 
 void
-ut_array_2d_int_sortbycol (int** array, int nbl, int nbc, int col)
+ut_array_2d_int_sortbycol (int **array, int nbl, int nbc, int col)
 {
   int i, j;
-  int* cpy = ut_alloc_1d_int (nbl);
-  int* pos = ut_alloc_1d_int (nbl);
+  int *cpy = ut_alloc_1d_int (nbl);
+  int *pos = ut_alloc_1d_int (nbl);
 
   assert (col < nbc && col >= 0);
 
@@ -2923,11 +2961,11 @@ ut_array_2d_int_sortbycol (int** array, int nbl, int nbc, int col)
 }
 
 void
-ut_array_2d_int_sortbycol_des (int** array, int nbl, int nbc, int col)
+ut_array_2d_int_sortbycol_des (int **array, int nbl, int nbc, int col)
 {
   int i, j;
-  int* cpy = ut_alloc_1d_int (nbl);
-  int* pos = ut_alloc_1d_int (nbl);
+  int *cpy = ut_alloc_1d_int (nbl);
+  int *pos = ut_alloc_1d_int (nbl);
 
   assert (col < nbc && col >= 0);
 
@@ -2971,13 +3009,13 @@ ut_array_2d_int_sortbycol_des (int** array, int nbl, int nbc, int col)
 	  array[j - 1][k] = array[j][k];
 	  array[j][k] = tmp;
 	}
-  
+
   return;
 }
 */
 
 int
-ut_array_2d_int_linepos (int **array, int line, int col, int* array2)
+ut_array_2d_int_linepos (int **array, int line, int col, int *array2)
 {
   int i, j, status;
 
@@ -3001,7 +3039,8 @@ ut_array_2d_int_linepos (int **array, int line, int col, int* array2)
 }
 
 int
-ut_array_2dns_int_linepos (int **array, int line, int* col, int* array2, int col2)
+ut_array_2dns_int_linepos (int **array, int line, int *col, int *array2,
+			   int col2)
 {
   int i, j, status;
 
@@ -3026,7 +3065,7 @@ ut_array_2dns_int_linepos (int **array, int line, int* col, int* array2, int col
 }
 
 int
-ut_array_1d_int_inv (int* b, int qty, int** pbinv, int* pbinqty)
+ut_array_1d_int_inv (int *b, int qty, int **pbinv, int *pbinqty)
 {
   int i;
 
@@ -3037,12 +3076,12 @@ ut_array_1d_int_inv (int* b, int qty, int** pbinv, int* pbinqty)
 
   for (i = 0; i < qty; i++)
     (*pbinv)[b[i]] = i;
-  
+
   return 0;
 }
 
 int
-ut_array_1d_int_equal (int* a, int* b, int qty)
+ut_array_1d_int_equal (int *a, int *b, int qty)
 {
   int i;
 
@@ -3054,7 +3093,7 @@ ut_array_1d_int_equal (int* a, int* b, int qty)
 }
 
 int
-ut_array_1d_equal (double* a, double* b, int qty, double eps)
+ut_array_1d_equal (double *a, double *b, int qty, double eps)
 {
   int i;
 
@@ -3066,7 +3105,7 @@ ut_array_1d_equal (double* a, double* b, int qty, double eps)
 }
 
 int
-ut_array_1d_requal (double* a, double* b, int qty, double eps)
+ut_array_1d_requal (double *a, double *b, int qty, double eps)
 {
   int i;
 
@@ -3078,7 +3117,8 @@ ut_array_1d_requal (double* a, double* b, int qty, double eps)
 }
 
 double
-ut_array_2d_cov (double** data, double mean1, double mean2, int qty, int col1, int col2)
+ut_array_2d_cov (double **data, double mean1, double mean2, int qty, int col1,
+		 int col2)
 {
   int i;
   double cov;
@@ -3092,16 +3132,16 @@ ut_array_2d_cov (double** data, double mean1, double mean2, int qty, int col1, i
 }
 
 double
-ut_array_2d_linearcorr (double** data, int qty, int col1, int col2)
+ut_array_2d_linearcorr (double **data, int qty, int col1, int col2)
 {
   double mean1, mean2, stddev1, stddev2, cov;
-  double** datatr = NULL;
+  double **datatr = NULL;
   ut_array_2d_transpose (data, qty, 2, &datatr);
 
-  mean1   = ut_array_1d_mean (datatr[col1], qty);
+  mean1 = ut_array_1d_mean (datatr[col1], qty);
 
   stddev1 = ut_array_1d_stddev (datatr[col1], mean1, qty);
-  mean2   = ut_array_1d_mean (datatr[col2], qty);
+  mean2 = ut_array_1d_mean (datatr[col2], qty);
   stddev2 = ut_array_1d_stddev (datatr[col2], mean2, qty);
 
   cov = ut_array_2d_cov (datatr, mean1, mean2, qty, col1, col2);
@@ -3110,7 +3150,7 @@ ut_array_2d_linearcorr (double** data, int qty, int col1, int col2)
 }
 
 void
-ut_array_2d_transpose (double** A, int s1, int s2, double*** pT)
+ut_array_2d_transpose (double **A, int s1, int s2, double ***pT)
 {
   int i, j;
 
@@ -3123,7 +3163,7 @@ ut_array_2d_transpose (double** A, int s1, int s2, double*** pT)
 }
 
 void
-ut_array_2d_int_transpose (int** A, int s1, int s2, int*** pT)
+ut_array_2d_int_transpose (int **A, int s1, int s2, int ***pT)
 {
   int i, j;
 
@@ -3151,7 +3191,7 @@ ut_array_1d_char_find (char *array, int n1, char val)
 }
 
 int
-ut_array_1d_int_list_addelt (int** parray, int* psize, int val)
+ut_array_1d_int_list_addelt (int **parray, int *psize, int val)
 {
   int status = -1;
 
@@ -3167,17 +3207,18 @@ ut_array_1d_int_list_addelt (int** parray, int* psize, int val)
 }
 
 void
-ut_array_1d_int_valqty (int* array, int size, int*** parray2, int* parray2qty)
+ut_array_1d_int_valqty (int *array, int size, int ***parray2, int *parray2qty)
 {
   int i;
 
   (*parray2) = ut_alloc_2d_int (2, size);
 
-  ut_array_1d_int_memcpy    ((*parray2)[0], size, array);
+  ut_array_1d_int_memcpy ((*parray2)[0], size, array);
   ut_array_1d_int_sort_uniq ((*parray2)[0], size, parray2qty);
 
   for (i = 0; i < (*parray2qty); i++)
-    (*parray2)[1][i] = ut_array_1d_int_nbofthisval (array, size, (*parray2)[0][i]);
+    (*parray2)[1][i] =
+      ut_array_1d_int_nbofthisval (array, size, (*parray2)[0][i]);
 
   (*parray2)[0] = ut_realloc_1d_int ((*parray2)[0], *parray2qty);
   (*parray2)[1] = ut_realloc_1d_int ((*parray2)[1], *parray2qty);
@@ -3186,10 +3227,10 @@ ut_array_1d_int_valqty (int* array, int size, int*** parray2, int* parray2qty)
 }
 
 int
-ut_array_1d_int_diff (int* array1, int size1, int* array2, int size2)
+ut_array_1d_int_diff (int *array1, int size1, int *array2, int size2)
 {
   int i;
-  
+
   if (size1 != size2)
     return 1;
   else
@@ -3201,7 +3242,7 @@ ut_array_1d_int_diff (int* array1, int size1, int* array2, int size2)
 }
 
 int
-ut_array_1d_int_percent (int* array, int size, int* percent)
+ut_array_1d_int_percent (int *array, int size, int *percent)
 {
   int i, sum;
 

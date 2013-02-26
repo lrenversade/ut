@@ -56,6 +56,17 @@ ut_array_1d_add (double *a, double *b, int size, double *c)
 }
 
 void
+ut_array_1d_int_add (int *a, int *b, int size, int *c)
+{
+  int i;
+
+  for (i = 0; i < size; i++)
+    c[i] = a[i] + b[i];
+
+  return;
+}
+
+void
 ut_array_2d_add (double **a, double **b, int size1, int size2, double **c)
 {
   int i, j;
@@ -466,24 +477,19 @@ ut_array_2d_fprintf_col (FILE * file, double **a, int size1, int size2,
   int i, j, res;
 
   for (j = 0; j < colqty; ++j)
-    if (cols[j] > size2 - 1)
+    if (cols[j] < 0 || cols[j] > size2 - 1)
       abort ();
 
   res = 0;
   for (i = 0; i < size1; i++)
-  {
     for (j = 0; j < colqty; ++j)
     {
       res = fprintf (file, format, a[i][cols[j]]);
-      res = fprintf (file, (cols[j + 1] != -1) ? " " : "");
+      res = fprintf (file, (j < colqty - 1) ? " " : "\n");
     }
-    res = fprintf (file, "\n");
-  }
 
   return res;
 }
-
-
 
 int
 ut_array_2d_int_fprintf (FILE * file, int **a, int size1, int size2,
@@ -3255,6 +3261,32 @@ ut_array_1d_int_percent (int *array, int size, int *percent)
 
   if (sum != 100)
     percent[ut_array_1d_int_max_index (percent, size)] += (100 - sum);
+
+  return 0;
+}
+
+int
+ut_array_3d_int_1d (int*** array, int size1, int size2, int size3,
+                    int** parray1d)
+{
+  int i, j, k, id = 0;
+
+  (*parray1d) = ut_alloc_1d_int (size1 * size2 * size3);
+  
+  for (k = 0; k < 3; k++)
+    for (j = 0; j < 3; j++)
+      for (i = 0; i < 3; i++)
+	(*parray1d)[id++] = array[i][j][k];
+
+  return 0;
+}
+
+int
+ut_array_1d_int_set_3 (int* array, int v1, int v2, int v3)
+{
+  array[0] = v1;
+  array[1] = v2;
+  array[2] = v3;
 
   return 0;
 }

@@ -8,6 +8,7 @@ extern void ut_array_1d_scale (double *, int, double);
 extern void ut_array_1d_int_scale (int *, int, int);
 extern void ut_array_1d_add (double *, double *, int, double *);
 extern void ut_array_1d_addval (double *, int, double, double *);
+extern void ut_array_1d_int_add (int *, int *, int, int *);
 extern void ut_array_2d_add (double **, double **, int, int, double **);
 extern void ut_array_3d_add (double ***, double ***, int, int, int, double ***);
 extern void ut_array_3d_add_float (float ***, float ***, int, int, int, float ***);
@@ -39,6 +40,8 @@ extern int ut_array_1d_int_fprintf (FILE *, int *, int, char *);
 extern int ut_array_1d_uint_fprintf (FILE *, unsigned int *, int, char *);
 extern int ut_array_2dns_int_fprintf (FILE*, int**, int, int*, char*);
 extern int ut_array_2d_fprintf (FILE *, double **, int, int, char *);
+extern int ut_array_2d_fprintf_col (FILE * file, double **a, int size1, int size2,
+                         int* cols, char *format);
 extern int ut_array_2d_float_fprintf (FILE *, float **, int, int, char *);
 extern int ut_array_2d_int_fprintf (FILE *, int **, int, int, char *);
 extern int ut_array_3d_int_fprintf (FILE *, int ***, int, int, int, char *);
@@ -229,5 +232,10 @@ extern void ut_array_1d_int_valqty (int* array, int size, int*** parray2, int* p
 extern int ut_array_1d_int_diff (int*, int, int*, int);
 
 extern int ut_array_1d_int_percent (int* array, int size, int* percent);
+
+extern int ut_array_3d_int_1d (int*** array, int size1, int size2, int size3,
+                    int** parray1d);
+
+extern int ut_array_1d_int_set_3 (int* array, int v1, int v2, int v3);
 
 #endif /* UT_ARRAY_H */

@@ -45,7 +45,7 @@ ut_sys_runwtime (char* exec, char *command, double t)
   pid = fork ();
   if (pid == 0)
   {
-    execv (exec, list);
+    execvp (exec, list);
     _exit (EXIT_FAILURE);
   }
   else if (pid < 0)

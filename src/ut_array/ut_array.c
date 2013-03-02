@@ -3290,3 +3290,14 @@ ut_array_1d_int_set_3 (int* array, int v1, int v2, int v3)
 
   return 0;
 }
+
+void
+ut_array_1d_int_set_id (int* array, int size)
+{
+  int i;
+
+  for (i = 0; i < size; i++)
+    array[i] = i;
+
+  return;
+}

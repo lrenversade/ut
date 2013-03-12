@@ -1,6 +1,12 @@
 /* Copyright (C) 2007-2009, 2012 Romain Quey */
 /* see the COPYING file in the top-level directory.*/
 
+/// \file ut_legacy.h
+/// \brief
+/// \author Romain Quey
+/// \bug 
+/// \todo 
+
 #ifndef UT_LEGACY_H
 #define UT_LEGACY_H
 

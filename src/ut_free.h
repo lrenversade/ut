@@ -1,6 +1,12 @@
 /* Copyright (C) 2007-2009, 2012 Romain Quey */
 /* see the COPYING file in the top-level directory.*/
 
+/// \file ut_free.h
+/// \brief Free memory
+/// \author Romain Quey
+/// \bug No known bugs
+/// \todo Document and sort by increasing complexity (similar to ut_alloc)
+
 #ifndef UT_FREE_H
 #define UT_FREE_H
 

@@ -1,6 +1,12 @@
 /* Copyright (C) 2007-2009, 2012 Romain Quey */
 /* see the COPYING file in the top-level directory.*/
 
+/// \file ut_vector.h
+/// \brief
+/// \author Romain Quey
+/// \bug No known bugs
+/// \todo Document and sort by increasing complexity
+
 #ifndef UT_VECTOR_H
 #define UT_VECTOR_H
 

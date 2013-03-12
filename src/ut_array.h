@@ -1,11 +1,27 @@
 /* Copyright (C) 2007-2009, 2012 Romain Quey */
 /* see the COPYING file in the top-level directory.*/
 
+/// \file ut_array.h
+/// \brief
+/// \author Romain Quey
+/// \bug No known bugs
+/// \todo Document and sort the functions by increasing complexity
+
 #ifndef UT_ARRAY_H
 #define UT_ARRAY_H
 
-extern void ut_array_1d_scale (double *, int, double);
-extern void ut_array_1d_int_scale (int *, int, int);
+/// \brief Scale a 1D array of double type.
+///
+///
+///
+extern void ut_array_1d_scale (double* array, int size, double factor);
+
+/// \brief Scale a 1D array of integer type.
+///
+///
+///
+extern void ut_array_1d_int_scale (int* array, int size, int factor);
+
 extern void ut_array_1d_add (double *, double *, int, double *);
 extern void ut_array_1d_addval (double *, int, double, double *);
 extern void ut_array_1d_int_add (int *, int *, int, int *);

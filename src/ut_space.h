@@ -1,6 +1,12 @@
 /* Copyright (C) 2007-2009, 2012 Romain Quey */
 /* see the COPYING file in the top-level directory.*/
 
+/// \file ut_space.h
+/// \brief
+/// \author Romain Quey
+/// \bug No known bugs
+/// \todo Document and sort by increasing complexity
+
 #ifndef UT_SPACE_H
 #define UT_SPACE_H
 
@@ -62,7 +68,6 @@ extern int ut_space_segment_point_in (double*, double*, double*);
 extern int ut_space_contour_intersect (double**, int);
 
 extern int ut_space_points_uvect (double*, double*, double*);
-
 
 extern void ut_space_string_plane (char*, double*);
 

@@ -7,5 +7,6 @@ The library includes functions for: memory allocation and free'ing,
 operations on arrays, operations on vectors and matrices,
 geometrical transformations, etc.
 
-The library tends to be documented using doxygen, hence the `config'
-file in the root directory. The documentation is quite sparse, though.
+The library tends to be documented using doxygen, hence the `doc.dox'
+file in the root directory. To generate the documentation, run `doxygen
+doc.dox'.

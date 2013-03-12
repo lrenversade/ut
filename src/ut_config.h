@@ -1,3 +1,9 @@
+/// \file ut_config.h
+/// \brief
+/// \author Romain Quey
+/// \bug No known bugs
+/// \todo Document 
+
 #define HAVE_GSL
 #define HAVE_PNG
 #define HAVE_LIBMATHEVAL

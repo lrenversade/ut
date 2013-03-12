@@ -114,16 +114,63 @@ extern unsigned char*** ut_alloc_1d_ppuchar (unsigned int size);
 /// \return pointer to the array.
 extern double* ut_alloc_1d (unsigned int size);
 
-extern int** ut_alloc_2d_int (unsigned int, unsigned int);
-extern unsigned short** ut_alloc_2d_ushort (unsigned int, unsigned int);
-extern unsigned char** ut_alloc_2d_uchar (unsigned int, unsigned int);
-extern char*** ut_alloc_2d_pchar (unsigned int, unsigned int);
-extern unsigned int** ut_alloc_2d_uint (unsigned int, unsigned int);
-extern float** ut_alloc_2d_float (unsigned int, unsigned int);
-extern double** ut_alloc_2d_double (unsigned int, unsigned int);
-extern char** ut_alloc_2d_char (unsigned int, unsigned int);
-extern double** ut_alloc_2d (unsigned int, unsigned int);
-extern int*** ut_alloc_3d_int (unsigned int, unsigned int, unsigned int);
+/// \brief Allocate a 2D array of integer numbers.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern int** ut_alloc_2d_int (unsigned int row, unsigned int col);
+
+/// \brief Allocate a 2D array of unsigned short interger numbers.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern unsigned short** ut_alloc_2d_ushort (unsigned int row, unsigned int col);
+
+/// \brief Allocate a 2D array of unsigned characters.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern unsigned char** ut_alloc_2d_uchar (unsigned int row, unsigned int col);
+
+/// \brief Allocate a 2D array of pointers of characters.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern char*** ut_alloc_2d_pchar (unsigned int row, unsigned int col);
+
+/// \brief Allocate a 2D array of unsigned integer numbers.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern unsigned int** ut_alloc_2d_uint (unsigned int row, unsigned int col);
+
+/// \brief Allocate a 2D array of single-precision numbers.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern float** ut_alloc_2d_float (unsigned int row, unsigned int col);
+
+/// \brief Allocate a 2D array of double-precision numbers.
+/// \details This function can also be called as 'ut_alloc_2d'.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern double** ut_alloc_2d_double (unsigned int row, unsigned int col);
+
+/// \brief Allocate a 2D array of characters.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern char** ut_alloc_2d_char (unsigned int row, unsigned int col);
+
+/// \brief Allocate a 2D array of double-precision numbers.
+/// \details This is a shortcut for function ut_alloc_2d_double.
+/// \param row number of rows of the array.
+/// \param col number of columns of the array.
+/// \return pointer to the array.
+extern double** ut_alloc_2d (unsigned int row, unsigned int col);
+
+extern int*** ut_alloc_3d_int (unsigned int , unsigned int , unsigned int);
 extern unsigned short*** ut_alloc_3d_ushort (unsigned int, unsigned int, unsigned int);
 extern unsigned char*** ut_alloc_3d_uchar (unsigned int, unsigned int, unsigned int);
 extern unsigned int*** ut_alloc_3d_uint (unsigned int, unsigned int, unsigned int);
@@ -138,6 +185,7 @@ extern double**** ut_alloc_4d (unsigned int, unsigned int,
 			       unsigned int, unsigned int);
 extern double**** ut_alloc_4d_double (unsigned int, unsigned int,
 				      unsigned int, unsigned int);
+
 
 extern double** ut_realloc_1d_pdouble (double**, unsigned int);
 extern int* ut_realloc_1d_int (int*, unsigned int);

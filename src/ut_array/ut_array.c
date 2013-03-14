@@ -24,7 +24,7 @@ ut_array_1d_scale (double *array, int size, double scale)
   if (scale == 1)
     return;
 
-  for (i = 0; i < qty; i++)
+  for (i = 0; i < size; i++)
     array[i] *= scale;
 
   return;

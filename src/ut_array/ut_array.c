@@ -17,7 +17,7 @@ int ut_array_1d_int_sort_index_comp (const void *, const void *);
 int ut_array_1d_sort_index_comp (const void *, const void *);
 
 void
-ut_array_1d_scale (double *array, int qty, double scale)
+ut_array_1d_scale (double *array, int size, double scale)
 {
   int i;
 

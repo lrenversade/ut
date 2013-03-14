@@ -239,8 +239,7 @@ ut_array_3d_int_zero (int ***a, int size1, int size2, int size3)
   return;
 }
 
-int
-ut_array_1d_fscanf (FILE * file, double *a, int size)
+int ut_array_1d_fscanf (FILE * file, double *a, int size)
 {
   int i, res = 0;
 

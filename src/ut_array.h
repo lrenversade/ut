@@ -188,7 +188,7 @@ extern void ut_array_2d_float_zero_be (float **a, int begX, int endX,
 ///
 ///
 extern void ut_array_2d_int_zero_be (int **a, int begX, int endX, int
-    begY, int endY);*
+    begY, int endY);
 //
 
 /// \brief Record 1D array 'a' of double type from file 'file' on a size 'size'
@@ -226,7 +226,7 @@ extern int ut_array_2d_fscanfn (char *string, double **a, int dimX, int
 //'string' and record 2D array of double type in a on a size 'dimX,dimY'. Else if file not found and filename is a number, fill the array with this number. Else if file not found and filename is a colour, fill the array with this colour.
 ///
 ///
-extern ints no ut_array_2d_fscanfn_wcard (char * string, double **a, int
+extern int ut_array_2d_fscanfn_wcard (char * string, double **a, int
     dimX, int dimY, char * wcard);
 //
 
@@ -995,7 +995,7 @@ extern void ut_array_1d_int_view (int *a, int size);
 ///
 ///
 ///
-extern void ut_array_2d_int_view (int **a, int sizex, int size y);
+extern void ut_array_2d_int_view (int **a, int sizex, int sizey);
 
 /// \brief Switch line l1 and l2 of 2d array a of double type with colnb columns. 
 ///

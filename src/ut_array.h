@@ -10,37 +10,42 @@
 #ifndef UT_ARRAY_H
 #define UT_ARRAY_H
 
-/// \brief Scale by 'factor' a 1D array of double type for a size 'size'.
-///
-///
-///
+/// \brief Scale a 1D array of double-precision numbers.
+/// \param array array to scale.
+/// \param size size of the array.
+/// \param factor scaling factor.
+/// \retval array scaled array (same as input).
+/// \return void.
 extern void ut_array_1d_scale (double* array, int size, double factor);
-//
 
-/// \brief Scale by 'factor' a 1D array of integer type for a size 'size'. 
-///
-///
-///
+/// \brief Scale by 'factor' a 1D array of integer numbers. 
+/// \param array array to scale.
+/// \param size size of the array.
+/// \retval array scaled array (same as input).
+/// \return void.
 extern void ut_array_1d_int_scale (int* array, int size, int factor);
+
+/// \brief Add two 1D arrays of double-precision numbers.
+/// \param array1 1st input array.
+/// \param array2 2nd input array.
+/// \param size size of arrays array1 and array2.
+/// \retval array result array.
+/// \return void.
+extern void ut_array_1d_add (double* array1, double* array2, int size, double *array);
 //
 
-/// \brief Add two 1D array (a,b) of double type for a size 'size'. The result is written in c. 
-///
-///
-///
-extern void ut_array_1d_add (double * a, double *b, int size, double *c);
-//
+/// \brief Add two 1D arrays of integer numbers.
+/// \param array1 1st input array. 
+/// \param array2 2nd input array.
+/// \param size size of arrays array 1 and array2.
+/// \retval array result array.
+/// \return void. 
+extern void ut_array_1d_int_add (int *array1, int *array2, int size, int
+    *array);
 
-/// \brief Add two 1D array (a,b) of int type for a size 'size'. The result is written in c. 
-///
-///
-///
-extern void ut_array_1d_int_add (int *a, int *b, int size, int *c);
-//
 
-/// \brief Add double value 'val' to each element of 1D array a from
-//index 0 to 'qty'-1. The result is written in c.
-///
+/// \brief Add double value 'val' to each element of an 1D array of double numbers.
+/// \param
 ///
 ///
 extern void ut_array_1d_addval (double *a, int qty, double val, double

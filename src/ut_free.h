@@ -95,49 +95,49 @@ extern void ut_free_1d_pfile (FILE **array);
 /// \brief Deallocate a 2D array of unsigned short integer numbers.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-extern void ut_free_2d_ushort (unsigned short **array, unsigned int line);
+/// \param size1 size along the 1st dimension of the array.
+extern void ut_free_2d_ushort (unsigned short **array, unsigned int size1);
 
 
 /// \brief Deallocate a 2D array of integer numbers.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-extern void ut_free_2d_int (int **array, unsigned int line);
+/// \param size1 size along the 1st dimension of the array.
+extern void ut_free_2d_int (int **array, unsigned int size1);
 
 
 /// \brief Deallocate a 2D array of unsigned integer numbers.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-extern void ut_free_2d_uint (unsigned int **array, unsigned int line);
+/// \param size1 size along the 1st dimension of the array.
+extern void ut_free_2d_uint (unsigned int **array, unsigned int size1);
 
 
 /// \brief Deallocate a 2D array of unsigned characters.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-extern void ut_free_2d_uchar (unsigned char **array, unsigned int line);
+/// \param size1 size along the 1st dimension of the array.
+extern void ut_free_2d_uchar (unsigned char **array, unsigned int size1);
 
 /// \brief Deallocate a 2D array of characters.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-extern void ut_free_2d_char (char **array, unsigned int line);
+/// \param size1 size along the 1st dimension of the array.
+extern void ut_free_2d_char (char **array, unsigned int size1);
 
 
 /// \brief Deallocate a 2D array of single-precision numbers.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-extern void ut_free_2d_float (float **array, unsigned int line);
+/// \param size1 size along the 1st dimension of the array.
+extern void ut_free_2d_float (float **array, unsigned int size1);
 
 /// \brief Deallocate a 2D array of double-precision numbers.
 /// \details This function can also be called as 'ut_free_2d'.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-extern void ut_free_2d_double (double **array, unsigned int line);
+/// \param size1 size along the 1st dimension of the array.
+extern void ut_free_2d_double (double **array, unsigned int size1);
 
 
 
@@ -145,71 +145,71 @@ extern void ut_free_2d_double (double **array, unsigned int line);
 /// \details This is a shortcut for function 'ut_free_2d_double'.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-extern void ut_free_2d (double **array, unsigned int line);
+/// \param size1 size along the 1st dimension of the array.
+extern void ut_free_2d (double **array, unsigned int size1);
 
 
 /// \brief Deallocate a 3D array of integer numbers.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-/// \param col number of columns of the array.
-extern void ut_free_3d_int (int ***array, unsigned int line, unsigned int col);
+/// \param size1 size along the 1st dimension of the array.
+/// \param size2 size along the 2nd dimension of the array.
+extern void ut_free_3d_int (int ***array, unsigned int size1, unsigned int size2);
 
 /// \brief Deallocate a 3D array of unsigned short integer numbers.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-/// \param col number of columns of the array.
-extern void ut_free_3d_ushort (unsigned short ***array, unsigned int line, unsigned int col);
+/// \param size1 size along the 1st dimension of the array.
+/// \param size2 size along the 2nd dimension of the array.
+extern void ut_free_3d_ushort (unsigned short ***array, unsigned int size1, unsigned int size2);
 
 /// \brief Deallocate a 3D array of unsigned characters.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-/// \param col number of columns of the array.
-extern void ut_free_3d_uchar (unsigned char ***array, unsigned int line, unsigned int col);
+/// \param size1 size along the 1st dimension of the array.
+/// \param size2 size along the 2nd dimension of the array.
+extern void ut_free_3d_uchar (unsigned char ***array, unsigned int size1, unsigned int size2);
 
 /// \brief Deallocate a 3D array of characters.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-/// \param col number of columns of the array.
-extern void ut_free_3d_char (char ***array, unsigned int line, unsigned int col);
+/// \param size1 size along the 1st dimension of the array.
+/// \param size2 size along the 2nd dimension of the array.
+extern void ut_free_3d_char (char ***array, unsigned int size1, unsigned int size2);
 
 
 /// \brief Deallocate a 3D array of single-precision numbers.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-/// \param col number of columns of the array.
-extern void ut_free_3d_float (float ***array, unsigned int line, unsigned int col);
+/// \param size1 size along the 1st dimension of the array.
+/// \param size2 size along the 2nd dimension of the array.
+extern void ut_free_3d_float (float ***array, unsigned int size1, unsigned int size2);
 
 
 /// \brief Deallocate a 3D array of double-precision numbers.
 /// \details This function can also be called as 'ut_free_3d'.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-/// \param col number of columns of the array.
-extern void ut_free_3d_double (double ***array, unsigned int line, unsigned int col);
+/// \param size1 size along the 1st dimension of the array.
+/// \param size2 size along the 2nd dimension of the array.
+extern void ut_free_3d_double (double ***array, unsigned int size1, unsigned int size2);
 
 
 /// \brief Deallocate a 3D array of double-precision numbers.
 /// \details This is a shortcut for function 'ut_free_3d_double'.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param line number of lines of the array.
-/// \param col number of columns of the array.
-extern void ut_free_3d (double ***array, unsigned int line, unsigned int col);
+/// \param size1 size along the 1st dimension of the array.
+/// \param size2 size along the 2nd dimension of the array.
+extern void ut_free_3d (double ***array, unsigned int size1, unsigned int size2);
 
 
 /// \brief Deallocate a 4D array of double-precision numbers.
 /// \details If array is NULL, the function does nothing.
 /// \param array pointer to the array.
-/// \param size1 size of the 1st dimension of the array.
-/// \param size2 size of the 2nd dimension of the array.
-/// \param size3 size of the 3rd dimension of the array.
+/// \param size1 size along the 1st dimension of the array.
+/// \param size2 size along the 2nd dimension of the array.
+/// \param size3 size along the 3rd dimension of the array.
 extern void ut_free_4d (double ****array, unsigned int size1, unsigned int size2, unsigned int size3);
 
 #endif /* UT_FREE_H */

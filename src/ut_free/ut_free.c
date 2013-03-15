@@ -147,14 +147,14 @@ ut_free_1d (double *res)
 }
 
 void
-ut_free_2d_int (int **array, unsigned int line)
+ut_free_2d_int (int **array, unsigned int size1)
 {
   int i;
 
   if (!array)
     return;
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
   {
     if (array[i] != NULL)
       free (array[i]);
@@ -167,14 +167,14 @@ ut_free_2d_int (int **array, unsigned int line)
 }
 
 void
-ut_free_2d_ushort (unsigned short **array, unsigned int line)
+ut_free_2d_ushort (unsigned short **array, unsigned int size1)
 {
   int i;
 
   if (!array)
     return;
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
   {
     if (array[i] != NULL)
       free (array[i]);
@@ -187,7 +187,7 @@ ut_free_2d_ushort (unsigned short **array, unsigned int line)
 }
 
 void
-ut_free_2d_uint (unsigned int **array, unsigned int line)
+ut_free_2d_uint (unsigned int **array, unsigned int size1)
 {
   int i;
 
@@ -196,7 +196,7 @@ ut_free_2d_uint (unsigned int **array, unsigned int line)
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -206,7 +206,7 @@ ut_free_2d_uint (unsigned int **array, unsigned int line)
 }
 
 void
-ut_free_2d_float (float **array, unsigned int line)
+ut_free_2d_float (float **array, unsigned int size1)
 {
   int i;
 
@@ -215,7 +215,7 @@ ut_free_2d_float (float **array, unsigned int line)
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -225,7 +225,7 @@ ut_free_2d_float (float **array, unsigned int line)
 }
 
 void
-ut_free_2d_double (double **array, unsigned int line)
+ut_free_2d_double (double **array, unsigned int size1)
 {
   int i;
 
@@ -234,7 +234,7 @@ ut_free_2d_double (double **array, unsigned int line)
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -244,44 +244,21 @@ ut_free_2d_double (double **array, unsigned int line)
 }
 
 void
-ut_free_2d (double **array, unsigned int line)
+ut_free_2d (double **array, unsigned int size1)
 {
   if (!array)
   {
     return;
   }
 
-  ut_free_2d_double (array, line);
+  ut_free_2d_double (array, size1);
   array = NULL;
 
   return;
 }
 
 void
-ut_free_3d_int (int ***array, unsigned int line, unsigned int column)
-{
-  int i, j;
-
-  if (!array)
-  {
-    return;
-  }
-
-  for (i = line - 1; i >= 0; i--)
-    for (j = column - 1; j >= 0; j--)
-      free (array[i][j]);
-
-  for (i = line - 1; i >= 0; i--)
-    free (array[i]);
-
-  free (array);
-  array = NULL;
-
-  return;
-}
-
-void
-ut_free_3d_ushort (unsigned short ***array, unsigned int line, unsigned int column)
+ut_free_3d_int (int ***array, unsigned int size1, unsigned int size2)
 {
   int i, j;
 
@@ -290,11 +267,11 @@ ut_free_3d_ushort (unsigned short ***array, unsigned int line, unsigned int colu
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
-    for (j = column - 1; j >= 0; j--)
+  for (i = size1 - 1; i >= 0; i--)
+    for (j = size2 - 1; j >= 0; j--)
       free (array[i][j]);
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -304,7 +281,7 @@ ut_free_3d_ushort (unsigned short ***array, unsigned int line, unsigned int colu
 }
 
 void
-ut_free_3d_uchar (unsigned char ***array, unsigned int line, unsigned int column)
+ut_free_3d_ushort (unsigned short ***array, unsigned int size1, unsigned int size2)
 {
   int i, j;
 
@@ -313,11 +290,11 @@ ut_free_3d_uchar (unsigned char ***array, unsigned int line, unsigned int column
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
-    for (j = column - 1; j >= 0; j--)
+  for (i = size1 - 1; i >= 0; i--)
+    for (j = size2 - 1; j >= 0; j--)
       free (array[i][j]);
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -327,7 +304,7 @@ ut_free_3d_uchar (unsigned char ***array, unsigned int line, unsigned int column
 }
 
 void
-ut_free_3d_char (char ***array, unsigned int line, unsigned int column)
+ut_free_3d_uchar (unsigned char ***array, unsigned int size1, unsigned int size2)
 {
   int i, j;
 
@@ -336,11 +313,11 @@ ut_free_3d_char (char ***array, unsigned int line, unsigned int column)
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
-    for (j = column - 1; j >= 0; j--)
+  for (i = size1 - 1; i >= 0; i--)
+    for (j = size2 - 1; j >= 0; j--)
       free (array[i][j]);
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -350,7 +327,7 @@ ut_free_3d_char (char ***array, unsigned int line, unsigned int column)
 }
 
 void
-ut_free_3d (double ***array, unsigned int line, unsigned int column)
+ut_free_3d_char (char ***array, unsigned int size1, unsigned int size2)
 {
   int i, j;
 
@@ -359,11 +336,11 @@ ut_free_3d (double ***array, unsigned int line, unsigned int column)
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
-    for (j = column - 1; j >= 0; j--)
+  for (i = size1 - 1; i >= 0; i--)
+    for (j = size2 - 1; j >= 0; j--)
       free (array[i][j]);
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -373,7 +350,30 @@ ut_free_3d (double ***array, unsigned int line, unsigned int column)
 }
 
 void
-ut_free_4d (double ****array, unsigned int line, unsigned int column, unsigned int depth)
+ut_free_3d (double ***array, unsigned int size1, unsigned int size2)
+{
+  int i, j;
+
+  if (!array)
+  {
+    return;
+  }
+
+  for (i = size1 - 1; i >= 0; i--)
+    for (j = size2 - 1; j >= 0; j--)
+      free (array[i][j]);
+
+  for (i = size1 - 1; i >= 0; i--)
+    free (array[i]);
+
+  free (array);
+  array = NULL;
+
+  return;
+}
+
+void
+ut_free_4d (double ****array, unsigned int size1, unsigned int size2, unsigned int depth)
 {
   int i, j, k;
 
@@ -382,16 +382,16 @@ ut_free_4d (double ****array, unsigned int line, unsigned int column, unsigned i
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
-    for (j = column - 1; j >= 0; j--)
+  for (i = size1 - 1; i >= 0; i--)
+    for (j = size2 - 1; j >= 0; j--)
       for (k = depth - 1; k >= 0; k--)
 	free (array[i][j][k]);
 
-  for (i = line - 1; i >= 0; i--)
-    for (j = column - 1; j >= 0; j--)
+  for (i = size1 - 1; i >= 0; i--)
+    for (j = size2 - 1; j >= 0; j--)
       free (array[i][j]);
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -401,7 +401,7 @@ ut_free_4d (double ****array, unsigned int line, unsigned int column, unsigned i
 }
 
 void
-ut_free_3d_float (float ***array, unsigned int line, unsigned int column)
+ut_free_3d_float (float ***array, unsigned int size1, unsigned int size2)
 {
   int i, j;
 
@@ -410,11 +410,11 @@ ut_free_3d_float (float ***array, unsigned int line, unsigned int column)
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
-    for (j = column - 1; j >= 0; j--)
+  for (i = size1 - 1; i >= 0; i--)
+    for (j = size2 - 1; j >= 0; j--)
       free (array[i][j]);
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);
@@ -438,7 +438,7 @@ ut_free_1d_char (char *string)
 }
 
 void
-ut_free_2d_char (char **array, unsigned int line)
+ut_free_2d_char (char **array, unsigned int size1)
 {
   int i;
 
@@ -447,7 +447,7 @@ ut_free_2d_char (char **array, unsigned int line)
     return;
   }
 
-  for (i = line - 1; i >= 0; i--)
+  for (i = size1 - 1; i >= 0; i--)
     free (array[i]);
 
   free (array);

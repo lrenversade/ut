@@ -44,373 +44,498 @@ extern void ut_array_1d_int_add (int *array1, int *array2, int size, int
     *array);
 
 
-/// \brief Add double value 'val' to each element of an 1D array of double numbers.
-/// \param
-///
-///
-extern void ut_array_1d_addval (double *a, int qty, double val, double
-    *c);
+/// \brief Add double value 'val' to each element of an 1D array of double-precision numbers.
+/// \param array1 initial value of the array.
+/// \param size size of the array.
+/// \param val value added to each element of the array.
+/// \retval array result array.
+/// \return void. 
+extern void ut_array_1d_addval (double *array1, int size, double val,
+    double *array);
 //
 
-/// \brief Add 2D array (a,b) of double type for dimensions size1 by size2. The result is written in c.
-///
-///
-///
-extern void ut_array_2d_add (double **a, double **b, int size1, int
-    size2, double **c);
+/// \brief Add two 2D arrays of double-precision numbers.
+/// \param array1 1st input array.
+/// \param array2 2nd input array.
+/// \param size1 arrays size on the first dimension.
+/// \param size2 arrays size on the second dimension.
+/// \retval array result array. 
+/// \return void.
+extern void ut_array_2d_add (double **array1, double **array2, int size1, int
+    size2, double **array);
 //
 
-/// \brief Add 3D array (a,b) of double type for dimensions size1 by size2 by size 3. The result is written in c.
-///
-///
-///
-extern void ut_array_3d_add (double ***a, double ***b, int size1, int
-    size2, int size3, double ***c);
+/// \brief Add two 3D arrays of double-precision numbers. 
+/// \param array1 1st input array.
+/// \param array2 2nd input array.
+/// \param size1 arrays size on the first dimension.
+/// \param size2 arrays size on the second dimension.
+/// \param size3 arrays size on the third dimension. 
+/// \retval array result array.
+extern void ut_array_3d_add (double ***array1, double ***array2, int size1, int
+    size2, int size3, double ***array);
 //
 
-/// \brief Add 3D array (a,b) of float type for dimensions size1 by size2 by size 3. The result is written in c.
-///
-///
-///
-extern void ut_array_3d_add_float (float ***, float ***, int, int, int,
-				   float ***);
+/// \brief Add two 3D arrays of double-precision numbers. 
+/// \param array1 1st input array.
+/// \param array2 2nd input array.
+/// \param size1 arrays size on the first dimension.
+/// \param size2 arrays size on the second dimension.
+/// \param size3 arrays size on the third dimension. 
+/// \retval array result array.
+extern void ut_array_3d_add_float (float ***array1, float ***array2, int
+    size1, int size2, int size3, float *** array);
 //
 
-/// \brief Add int value val to 1D array 'a' of float type from index 0 to 'qty'-1.The results is written in 'c'.
-///
-///
-///
-extern void ut_array_1d_int_addval (int *a, int qty, int val, int *c);
+
+/// \brief Add double value 'val' to each element of an 1D array of double-precision numbers.
+/// \param array1 initial value of the array.
+/// \param size size of the array.
+/// \param val value added to each element of the array.
+/// \retval array result array.
+/// \return void. 
+extern void ut_array_1d_int_addval (int *array1, int size, int val, int
+    *array);
 //
 
-/// \brief Return norm (double type) of 1D array of double type 'a' (norm 2), for a dimension n. 
-///
-///
-///
-extern double ut_array_1d_norm (double *a, int n);
+/// \brief Return the norm of an 1D array of double-precision numbers.
+/// \param array 1D array (not modified).
+/// \size size size of the array.
+/// \return double norm of the array.
+extern double ut_array_1d_norm (double *array, int size);
 //
 
-/// \brief Return norm (double type) of 1D array of int type 'a' (norm2), for a dimension n.
-///
-///
-///
-extern double ut_array_1d_norm_int (int *a, int n);
+
+/// \brief Return the norm of an 1D array of int numbers.
+/// \param array array to calcul norm (not modified).
+/// \size size size of the array.
+/// \return double norm of the array.
+extern double ut_array_1d_norm_int (int *array, int size);
 //
 
-/// \brief Initialize double 1D array 'a' of double type to 0. for index
-//from 0 to 'qty'-1.
-///
-///
-///
-extern void ut_array_1d_zero (double *a, int qty);
+/// \brief Initialize to 0 1D array of double-precision numbers.
+/// \param array array to initialize.
+/// \param size size of the array.
+/// \retval array initialized array (same as input).
+/// \return void.
+extern void ut_array_1d_zero (double *array, int size);
 //
 
-/// \brief Initialize double 1D array 'a' of int type to 0 for index from 0 to 'qty'-1.
-///
-///
-///
-extern void ut_array_1d_int_zero (int *a, int qty);
+/// \brief Initialize to 0 1D array of int numbers.
+/// \param array array to initialize.
+/// \param size size of the array.
+/// \retval array initialized array (same as input).
+/// \return void.
+extern void ut_array_1d_int_zero (int *array, int size);
 //
 
-/// \brief Initialize double 2D array 'a' of double type to 0 for index from 0 to 'size1'-1 and 0 to 'size2' -1. 
-///
-///
-///
-extern void ut_array_2d_zero (double **a, int size1, int size2);
+/// \brief Initialize to 0 2D array of double-precision numbers.
+/// \param array array to initialize.
+/// \param size1 size of the first dimension of the array.
+/// \param size2 size of the second dimension of the array.
+/// \retval array initialized array (same as input).
+/// \return void.
+extern void ut_array_2d_zero (double **array, int size1, int size2);
 //
 
-/// \brief Initialize double 3D array 'a' of double type to 0 for index from 0 to 'size1'-1 ; 0 to 'size2' -1 and 0 to 'size3-1' 
-///
-///
-///
-extern void ut_array_3d_zero (double ***a, int size1, int size2, int
+
+/// \brief Initialize 3D array of double-precision numbers to 0.
+/// \param array array to initialize.
+/// \param size1 size of the first dimension of the array.
+/// \param size2 size of the second dimension of the array.
+/// \param size3 size of the third dimension of the array. 
+/// \retval array initialized array (same as input).
+/// \return void.
+extern void ut_array_3d_zero (double ***array, int size1, int size2, int
     size3);
 //
 
-/// \brief Initialize double 3D array 'a' of float type to 0 for index from 0 to 'size1'-1 ; 0 to 'size2' -1 and 0 to 'size3-1' 
-///
-///
-///
-extern void ut_array_3d_zero_float (float ***a, int size1, int size2,
+
+/// \brief Initialize 3D array of float numbers to 0.
+/// \param array array to initialize.
+/// \param size1 size of the first dimension of the array.
+/// \param size2 size of the second dimension of the array.
+/// \param size3 size of the third dimension of the array. 
+/// \retval array initialized array (same as input).
+/// \return void.
+extern void ut_array_3d_zero_float (float ***array, int size1, int size2,
     int size3);
 //
 
-/// \brief Initialize double 2D array 'a' of int type to 0 for index from 0 to 'size1'-1 and 0 to 'size2' -1. 
-///
-///
-///
-extern void ut_array_2d_int_zero (int ** a, int size1, int size2);
+/// \brief Initialize double 2D array of integer numbers to 0.  
+/// \param array array to initialize.
+/// \param size1 size of the first dimension of the array.
+/// \param size2 size of the second dimension of the array. 
+/// \retval array initialized array (same as input).
+/// \return void.
+extern void ut_array_2d_int_zero (int ** array, int size1, int size2);
 //
 
-/// \brief Initialize double 3D array 'a' of int type to 0 for index from 0 to 'size1'-1 ; 0 to 'size2' -1 and 0 to 'size3-1' 
-///
-///
-///
-extern void ut_array_3d_int_zero (int ***, int, int, int);
+/// \brief Initialize double 3D array of integer numbers to 0. 
+/// \param array array to initialize.
+/// \param size1 size of the first dimension of the array.
+/// \param size2 size of the second dimension of the array.
+/// \retval array initialized array (same as input). 
+/// \return void. 
+extern void ut_array_3d_int_zero (int *** array, int size1, int size2,
+    int size3);
 //
 
-/// \brief Initialize 1D array 'a' of double type to 0 for index from 'beg' to 'end'
-///
-///
-///
-extern void ut_array_1d_zero_be (double *a, int beg, int end);
+/// \brief Initialize 1D array of double-precision numbers to 0 for a range of index from 'beg' to 'end'.
+/// \param array array to initialize.
+/// \param beg index of the beginning of initialization.
+/// \param end index of the end of initialization.
+/// \retval array initialized array (same as input).
+/// \return void.
+extern void ut_array_1d_zero_be (double *array, int beg, int end);
 //
 
-/// \brief Initialize 1D array 'a' of float type to 0 for index from 'beg' to 'end'
-///
-///
-///
-extern void ut_array_1d_float_zero_be (float *a, int beg, int end);
+
+/// \brief Initialize 1D array of float numbers to 0 for a range of index from 'beg' to 'end'.
+/// \param array array to initialize.
+/// \param beg index of the beginning of initialization.
+/// \param end index of the end of initialization.
+/// \retval array initialized array (same as input).
+/// \return void. 
+extern void ut_array_1d_float_zero_be (float *array, int beg, int end);
 //
 
-/// \brief Initialize 1D array 'a' of double type to 0 for index from 'beg' to 'end'
-///
-///
-///
-extern void ut_array_1d_int_zero_be (int *a, int beg, int end);
+
+/// \brief Initialize 1D array of float numbers to 0 for a range of index from 'beg' to 'end'.
+/// \param array array to initialize.
+/// \param beg index of the beginning of initialization.
+/// \param end index of the end of initialization.
+/// \retval array initialized array (same as input).
+/// \return void. 
+extern void ut_array_1d_int_zero_be (int *array, int beg, int end);
 //
 
-/// \brief Initialize 2D array 'a' of double type to 0 for Xindex from 'begX' to 'endX' and Yindex from 'begY' to 'endY'
-///
-///
-///
-extern void ut_array_2d_zero_be (double **a, int begX, int endX, int
+/// \brief Initialize 2D array of double-precision numbers to 0 for Xindex from 'begX' to 'endX' and Yindex from 'begY' to 'endY'.
+/// \param array array to initialize. 
+/// \param beg index of the beginning of initialization. 
+/// \param end index of the end of initialization.
+/// \retval array initialized array (same as input). 
+/// \return void. 
+extern void ut_array_2d_zero_be (double **array, int begX, int endX, int
     begY, int endY);
 //
 
-/// \brief Initialize 2D array 'a' of float type to 0 for Xindex from 'begX' to 'endX' and Yindex from 'begY' to 'endY'
-///
-///
-///
-extern void ut_array_2d_float_zero_be (float **a, int begX, int endX,
+/// \brief Initialize 2D array 'a' of float numbers to 0 for Xindex from 'begX' to 'endX' and Yindex from 'begY' to 'endY'
+/// \param array array to initialize. 
+/// \param beg index of the beginning of initialization. 
+/// \param end index of the end of initialization.
+/// \retval array initialized array (same as input). 
+/// \return void. 
+extern void ut_array_2d_float_zero_be (float **array, int begX, int endX,
     int begY, int endY);
 //
 
-/// \brief Initialize 2D array 'a' of int type to 0 for Xindex from 'begX' to 'endX' and Yindex from 'begY' to 'endY'
-///
-///
-///
-extern void ut_array_2d_int_zero_be (int **a, int begX, int endX, int
+/// \brief Initialize 2D array 'a' of integer numbers to 0 for Xindex from 'begX' to 'endX' and Yindex from 'begY' to 'endY'
+/// \param array array to initialize. 
+/// \param beg index of the beginning of initialization. 
+/// \param end index of the end of initialization.
+/// \retval array initialized array (same as input). 
+/// \return void. 
+extern void ut_array_2d_int_zero_be (int **array, int begX, int endX, int
     begY, int endY);
 //
 
-/// \brief Record 1D array 'a' of double type from file 'file' on a size 'size'
-///
-///
-///
-extern int ut_array_1d_fscanf (FILE *file, double *a, int size);
+/// \brief Record 1D array of double-precision numbers from a file. 
+/// \param file file to read.
+/// \param size size of array and file.
+/// \retval array written array (same as input).
+/// \return void. 
+extern int ut_array_1d_fscanf (FILE *file, double *array, int size);
 //
 
-/// \brief Record 1D array 'a' of int type from file 'file' on a
-//size 'size'. Return 1 if ok. 
-///
-///
-extern int ut_array_1d_int_fscanf (FILE *file, int *a, int size);
+/// \brief Record 1D array of integer numbers from a file. 
+/// \param file file to read.
+/// \param size size of array and file.
+/// \retval array written array (same as input).
+/// \return void. 
+extern int ut_array_1d_int_fscanf (FILE *file, int *array, int size);
 //
 
-/// \brief Record 2D array 'a' of double type from file 'file' on a on
-//the dimensions 'dimX, dimY'.  Return 1 if ok. 
-///
-///
-///
-extern int ut_array_2d_fscanf (FILE * file, double **a, int dimX, int
-    dimY);
+/// \brief Record 1D array of integer numbers from a file. 
+/// \param file file to read.
+/// \param size1 size of the first dimension of array and file.
+/// \param size2 size of the second dimension of array and file. 
+/// \retval array written array (same as input).
+/// \return void. 
+extern int ut_array_2d_fscanf (FILE * file, double **array, int size1, int
+    size2);
 //
 
-/// \brief Open file of name 'string' and record the 2D array of double type on the dimensions 'dimX, dimY'. Return 1 if ok.
-///
-///
-///
-extern int ut_array_2d_fscanfn (char *string, double **a, int dimX, int
-    dimY);
+/// \brief Open file of name 'filename' and record a 2D array of double-precision numbers.
+/// \param filename name of the file to write.
+/// \param array array to read.
+/// \param size1 size of the first dimension of the array and file.
+/// \param size2 size of the second dimension of the array and file.
+/// \retval file written file (same as input)
+/// \return int 1 if the file has been written, 0 otherwise. 
+extern int ut_array_2d_fscanfn (char *filename, double **array, int
+    size1, int size2);
 //
 
-/// \brief Standard case : file has been found. Open file of name
-//'string' and record 2D array of double type in a on a size 'dimX,dimY'. Else if file not found and filename is a number, fill the array with this number. Else if file not found and filename is a colour, fill the array with this colour.
-///
-///
-extern int ut_array_2d_fscanfn_wcard (char * string, double **a, int
-    dimX, int dimY, char * wcard);
+
+/// \brief Standard : open file of name 'filename' and record 1D array of double-precision numbers. 
+/// \details If file has not been found and filename is a number, fill the array with this number. Else if file has not been found and filename is a colour, fill the array with this colour.
+/// \param filename name of the file to write
+/// \param array arrray to read
+/// \param size1 size of the first dimension of the array and file.
+/// \param wcard informations on the file to write.
+/// \retval file written file (same as input) 
+/// \return int 1 if the file has been written, 0 otherwise.
+/// \todo : R. can check this comment.
+extern int ut_array_1d_fscanfn_wcard (char * filename, double *array,
+    int size1, char *wcard);
+
+/// \brief Standard : open file of name 'filename' and record 2D array of double-precision numbers. 
+/// \details If file has not been found and filename is a number, fill the array with this number. Else if file has not been found and filename is a colour, fill the array with this colour.
+/// \param filename name of the file to write
+/// \param array arrray to read
+/// \param size1 size of the first dimension of the array and file.
+/// \param size2 size of the second dimension of the array and file.
+/// \param wcard informations on the file to write.
+/// \retval file written file (same as input)
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_2d_fscanfn_wcard (char * filename, double **array, int
+    size1, int size2, char * wcard);
 //
 
-/// \brief Standard case : file has been found. Open file of name 'string' and record 2D array of double type in a on a size 'dimX,dimY'. Else if file not found and filename is a number, fill the array with this number. Else if file not found and filename is a colour, fill the array with this colour. Return 1 if ok. 
-///
-///
-///
-extern int ut_array_1d_fscanfn_wcard (char *, double *, int, char *);
-//
 
-/// \brief Write 1D array of double type and size 'size' on file 'file' with format 'format'
-///
-///
-///
-extern int ut_array_1d_fprintf (FILE *file, double *a, int size, char
+/// \brief Write 1D array of double-precision numbers on file 'file' of specified format.
+/// \param file file to write.
+/// \param array array to read. 
+/// \param size size of file and array.
+/// \param format format of the file.
+/// \retval file written file (same as input.)
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_1d_fprintf (FILE *file, double *array, int size, char
     *format);
 //
 
-/// \brief Write 1D array of float type and size 'size' on file 'file' from 1D array 'a' with format 'format'
-///
-///
-///
-extern int ut_array_1d_float_fprintf (FILE *file, float *a, int size,
+
+/// \brief Write 1D array of float numbers on file 'file' of specified format.
+/// \param file file to write.
+/// \param array array to read. 
+/// \param size size of file and array.
+/// \param format format of the file.
+/// \retval file written file (same as input).
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_1d_float_fprintf (FILE *file, float *array, int size,
     char *format);
 //
 
-/// \brief Write 1D array of int type and size 'size' on file 'file' from 1D array 'a' with format 'format'
-///
-///
-///
-extern int ut_array_1d_int_fprintf (FILE *file, int *, int, char *);
+/// \brief Write 1D array of int numbers on file 'file' of specified format.
+/// \param file file to write.
+/// \param array array to read 
+/// \param size size of file and array
+/// \param format format of the file
+/// \retval file written file (same as input)
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_1d_int_fprintf (FILE *file, int *array, int size,
+    char *format);
 //
 
-/// \brief Write 1D array of unsigned int type and size 'size' on file 'file' from 1D array 'a' with format 'format'
-///
-///
-///
-extern int ut_array_1d_uint_fprintf (FILE * file, unsigned int *a, int
+
+/// \brief Write 1D array of unsigned int numbers on file 'file' of specified format.
+/// \param file file to write.
+/// \param array array to read 
+/// \param size size of file and array
+/// \param format format of the file
+/// \retval file written file (same as input)
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_1d_uint_fprintf (FILE * file, unsigned int *array, int
     size, char * format);
 //
 
-/// \brief Write 2D array of int type and size 'dimX' 'dimY*'(value change with the index of the table) on file 'file' from 2D array 'a' with format 'format'
-///
-///
-///
-extern int ut_array_2dns_int_fprintf (FILE *file, int **a, int dimX, int
-    *dimY, char *format);
+/// \brief Write 2D array of int numbers with various length of the second dimension of the array on file 'file' of specified format.
+/// \param file file to write.
+/// \param array array to read. 
+/// \param size1 size of the first dimension of file and array.
+/// \param size2 size of the second dimensions of file and array. 
+/// \param format format of the file
+/// \retval file written file (same as input)
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_2dns_int_fprintf (FILE *file, int **array, int size1, int
+    *size2, char *format);
 //
 
-/// \brief Write 2D array of double type and size 'dimX' 'dimY' on file 'file' from 2D array 'a' with format 'format'
-///
-///
-///
-extern int ut_array_2d_fprintf (FILE * file, double **a, int dimX, int
-    dimY, char *format);
+
+/// \brief Write 2D array of double-precision numbers on file 'file' of specified format.
+/// \param file file to write.
+/// \param array array to read. 
+/// \param size1 size of the first dimension of file and array.
+/// \param size2 size of the second dimension of file and array.
+/// \param format format of the file.
+/// \retval file written file (same as input.)
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_2d_fprintf (FILE * file, double **array, int size1, int
+    size2, char *format);
 //
 
-/// \brief Write 2D array of double type and size 'dimX','colqty'(value change with the index of the table 'cols') on file 'file' from 2D array 'a' with format 'format'. Return 0 if ok. 
-///
-///
-///
-extern int ut_array_2d_fprintf_col (FILE * file, double **a, int size1,
+/// \brief Write 2D array file of specified format and specified columns indexes from 2D array of double-precision numbers array. 
+/// \param file file to write.
+/// \param array array to read.
+/// \param size1 size of the first dimension of array.
+/// \param size2 size of the second dimension of array. 
+/// \param cols indexes of columns to copy.
+/// \param colqty number of columns to copy.
+/// \param format format of file.
+/// \retval file written file (same as input).
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_2d_fprintf_col (FILE * file, double **array, int size1,
     int size2, int *cols, int colqty,char *format);
 //
 
-/// \brief Write 2D array of float type and size 'dimX' 'dimY' on file 'file' from 2D array 'a' with format 'format'
-///
-///
-///
-extern int ut_array_2d_float_fprintf (FILE * file, float **a, int dimX,
-    int dimY, char *format);
+
+/// \brief Write 2D array of float numbers on file 'file' of specified format.
+/// \param file file to write.
+/// \param array array to read. 
+/// \param size1 size of the first dimension of file and array.
+/// \param size2 size of the second dimension of file and array.
+/// \param format format of the file.
+/// \retval file written file (same as input.)
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_2d_float_fprintf (FILE * file, float **array, int
+    size1, int size2, char *format);
 //
 
 
-/// \brief Write 2D array of int type and size 'dimX' 'dimY' on file 'file' from 2D array 'a' with format 'format'
-///
-///
-///
-extern int ut_array_2d_int_fprintf (FILE * file, int **a, int dimX, int
-    dimY, char *format);
+
+/// \brief Write 2D array of int numbers on file 'file' of specified format.
+/// \param file file to write.
+/// \param array array to read. 
+/// \param size1 size of the first dimension of file and array.
+/// \param size2 size of the second dimension of file and array.
+/// \param format format of the file.
+/// \retval file written file (same as input.)
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_2d_int_fprintf (FILE * file, int **array, int size1,
+    int size2, char *format);
 //
 
-/// \brief Write 3D array of int type and size 'dimX' 'dimY' 'dimZ' on file 'file' from 3D array 'a' with format 'format'
-///
-///
-///
-extern int ut_array_3d_int_fprintf (FILE *file, int ***a, int dimX, int
-    dimY, int dimZ, char *format);
+
+/// \brief Write 3D array of int numbers on a file of specified format.
+/// \param file file to write.
+/// \param array array to read. 
+/// \param size1 size of the first dimension of file and array.
+/// \param size2 size of the second dimension of file and array.
+/// \param size3 size of the third dimension of file and array. 
+/// \param format format of the file.
+/// \retval file written file (same as input).
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_3d_int_fprintf (FILE *file, int ***array, int size1, int
+    size2, int size3, char *format);
 //
 
-/// \brief Record 2D array of int type and dimensions 'dimX' 'dimY'  from file 'file'on 2D array 'a'
-///
-///
-///
-extern int ut_array_2d_int_fscanf (FILE *file, int **a, int dimX, int
-    dimY);
+/// \brief Record 2D array of int numbers from a file.
+/// \param file file to read.
+/// \param array array to write.
+/// \param size1 size of the first dimension of file and array.
+/// \param size2 size of the second dimension of file and array. 
+/// \retval array written array (same as input).
+/// \return int 1 if the file has been written, 0 otherwise.
+extern int ut_array_2d_int_fscanf (FILE *file, int **array, int size1,
+    int size2);
 //
 
-/// \brief Scale 2D array of double type by a factor 'factor' on dimensions 'dimX' 'dimY' on file 'file' from 2D array 'a'
-///
-///
-///
-extern void ut_array_2d_scale (double **a, int dimX, int dimY, double
+/// \brief Scale 2D array of double-precision numbers.
+/// \param array array to scale.
+/// \param size1 size of the first dimension of the array.
+/// \param size2 size of the second dimension of the array. 
+/// \param factor scaling factor.
+/// \retval array scaled array (same as input).
+/// \return int 1 if the file has been written, 0 otherwise.
+extern void ut_array_2d_scale (double **array, int size1, int size2, double
     factor);
 //
 
-/// \brief Return the minimum of 1D array 'a' of double type on the 'size' first elements
-///
-///
-///
-extern double ut_array_1d_min (double * a, int size);
+/// \brief Return the minimum of 1D array of double-precision numbers. 
+/// \param array array to analyse
+/// \param size size of the array
+/// \return double minimum value of the array
+extern double ut_array_1d_min (double * array, int size);
 //
 
-/// \brief Return the minimum of the column 'col' of 2D array 'a' with dim on X dimX.
-///
-///
-///
-extern double ut_array_2d_col_min (double **a, int col, int dimX);
+/// \brief Return the minimum of one columnn of a 2D array of double-precision numbers.
+/// \param array array to analyse.
+/// \param col specified column of the array to analyse.
+/// \param size size of the array.
+/// \return double minimum value of the specied column of the array.
+extern double ut_array_2d_col_min (double **array, int col, int size);
 //
 
-/// \brief Return the maximum of the column 'col' of 2D array 'a' with dim on X dimX.
-///
-///
-///
-extern double ut_array_2d_col_max (double **a, int col, int dimX);
+/// \brief Return the maximum of one columnn of a 2D array of double-precision numbers.
+/// \param array array to analyse.
+/// \param col specified column of the array to analyse.
+/// \param size size of the array.
+/// \return double minimum value of the specied column of the array.
+extern double ut_array_2d_col_max (double **array, int col, int size);
 //
 
-/// \brief Return the index of the minimum of array 'a' with dim on X dimX.
-///
-///
-///
-extern int ut_array_1d_min_index (double *a, int dimX);
+/// \brief Return the index of the minimum of an 1D array of double-precision numbers.
+/// \param array array to analyse
+/// \param size size of the array
+/// \return int index of the minimum ot the array
+extern int ut_array_1d_min_index (double *array, int size);
 //
 
-/// \brief Return the index of the second minimal value of array 'a' with dim on X dimX.
-///
-///
-///
-extern int ut_array_1d_min2_index (double *a, int dimX);
+/// \brief Return the index of the second minimal value of an 1D array of double-precision numbers. 
+/// \param array array to analyse
+/// \param size size of the array
+/// \return int index of the minimum ot the array
+extern int ut_array_1d_min2_index (double *array, int size);
 //
 
-/// \brief Return the maximum of 1D array 'a' of double type on the 'size' first elements
-///
-///
-///
-extern double ut_array_1d_max (double *a, int size);
-//
-/// \brief Return the mean value of 1D array 'a' of double type on the 'size' first elements.
-///
-///
-///
-extern double ut_array_1d_mean (double *a, int size);
+
+/// \brief Return the index of the maximum of an 1D array of double-precision numbers.
+/// \param array array to analyse.
+/// \param size size of the array.
+/// \return int index of the maximum ot the array.
+extern double ut_array_1d_max (double *array, int size);
 //
 
-/// \brief Return the geometric mean value of 1D array 'a' of double type on the 'size' first elements.
-///
-///
-///
-extern double ut_array_1d_gmean (double *, int);
+/// \brief Return the mean value of an 1D array of double-precision numbers. 
+/// \param array array to analyse.
+/// \param size size of the array.
+/// \return int index of the maximum ot the array.
+extern double ut_array_1d_mean (double *array, int size);
 //
 
-/// \brief Return the ponderated (by 1d array 'b') mean value of double type 'a' for the 'size' first elements. 
+/// \brief Return the geometric mean value of an 1D array of double-precision numbers.
+/// \param array array to analyse.
+/// \param size size of the array.
+/// \return int index of the mean value ot the array.
 ///
-///
-///
-extern double ut_array_1d_wmean (double *a, double *b, int size);
+extern double ut_array_1d_gmean (double *array, int size);
 //
 
-/// \brief Return the standard deviation of 1D array 'a' of double type,compared to double 'mean' for the 'size' first elements. 
-///
-///
-/// 
-extern double ut_array_1d_stddev (double * a, double mean, int size);
+/// \brief Return the ponderated mean value of an 1D array of double-precision numbers.
+/// \param array array to mean
+/// \param coeff coefficients of ponderation
+/// \param size size of the array. 
+/// \return double ponderated mean value. 
+extern double ut_array_1d_wmean (double *array, double *coeff, int size);
 //
 
-/// \brief Return the standard deviation of 2D array 'a' of double type,compared to double 'mean' for the dimensions dimX,dimY. 
-///
-///
-/// 
-extern double ut_array_2d_stddev (double **a, double mean, int dimX,
-    int dimY);
+/// \brief Return the standard deviation of an 1D array of double precision numbers (compared to the mean value).
+/// \param array array ta analyse.
+/// \param mean mean of the array.
+/// \param size size of the array.
+/// \return double standard deviation.
+extern double ut_array_1d_stddev (double * array, double mean, int size);
+//
+
+/// \brief Return the standard deviation of 2D array of double-precision numbers.
+/// \param array array to analyse.
+/// \param mean mean of the array. 
+/// \param size1 size of the fisrt dimension of the array. 
+/// \param size2 size of the second dimension of the array. 
+/// \return double standard deviation. 
+extern double ut_array_2d_stddev (double **a, double mean, int size1,
+    int size2);
 //
 
 /// \brief Return the absolute value of the maximum of 1D array 'a' of double type for the size first elements. 

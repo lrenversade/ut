@@ -3,18 +3,56 @@
 
 /// \mainpage  UT library: A collection of general-purpose C utilities
 ///
-/// The library includes functions for:
+/// <h2> Description </h2>
+///
+/// The UT library is a general-purpose C utility library, which
+/// includes functions for:
 /// <ul>
-/// <li> memory allocation and free'ing
-/// <li> operations on arrays
-/// <li> operations on vectors and matrices
-/// <li> geometrical transformations
+/// <li> Memory allocation and free'ing
+///
+/// <li> Operations on arrays
+///
+/// <li> Operations on vectors and matrices
+///
+/// <li> Geometrical transformations
+///
+/// <li> ...
 /// </ul>
 ///   
-/// The library is split up into several files, which can be accessed
-/// by following the Files link above.
-///
 /// Functions are prefixed 'ut_' and macros are prefixed 'UT_'.
+/// Details can be obtained by following the links above.
+///
+/// <h2> Installation </h2>
+///
+/// The UT library is written in (mostly ANSI) C. It can be compiled using Cmake, a
+/// standard open-source build system. The main steps are as follows,
+///
+/// <ul>
+/// <li> Create a 'build' directory, for example as a subdirectory
+///      of UT's 'src' directory,<br>
+///
+///      $ mkdir build
+///
+/// <li> Run cmake from within the 'build' directory, pointing to
+///      UT's 'src' directory,
+///
+///      $ cd build <br>
+///      $ cmake ..
+///
+/// <li> To build and install UT, then simply type,
+///
+///      $ make <br>
+///      $ make install (as root)
+/// </ul>
+///
+/// This will use the default configuration options and should work out
+/// of the box on condition that the required libraries are available and
+/// installed in standard system locations.  A finer configuration can
+/// be achieved before building UT, as described in the following.
+///
+/// The UT library has a few optional dependencies, which are quite
+/// standard and enabled by default: libpng, GSL and libmatheval.
+/// They can be toggled off using Cmake's GUI ('cmake-gui') or 'ccmake'.
 ///
 /// \see This documentation is generated using doxygen.
 /// <ul>

@@ -253,85 +253,85 @@ extern double**** ut_alloc_4d_double (unsigned int size1, unsigned int size2,
 
 /// \brief Reallocate a 1D array of pointers of double-precision numbers.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern double** ut_realloc_1d_pdouble (double** pa, unsigned int size);
+extern double** ut_realloc_1d_pdouble (double** array, unsigned int size);
 
 /// \brief Reallocate a 1D array of integer numbers.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
 /// \details In case that size is 0, this function behaves like 'ut_free_1d_int'.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern int* ut_realloc_1d_int (int* pa, unsigned int size);
+extern int* ut_realloc_1d_int (int* array, unsigned int size);
 
 /// \brief Reallocate a 1D array of characters.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
 /// \details In case that size is 0, this function behaves like 'ut_free_1d_char'.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern char* ut_realloc_1d_char (char* pa, unsigned int size);
+extern char* ut_realloc_1d_char (char* array, unsigned int size);
 
 /// \brief Reallocate a 1D array of pointers of integer numbers.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern int** ut_realloc_1d_pint (int** pa, unsigned int size);
+extern int** ut_realloc_1d_pint (int** array, unsigned int size);
 
 /// \brief Reallocate a 1D array of pointers of unsigned short integer numbers.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern unsigned short** ut_realloc_1d_pushort (unsigned short** pa, unsigned int size);
+extern unsigned short** ut_realloc_1d_pushort (unsigned short** array, unsigned int size);
 
 /// \brief Reallocate a 1D array of pointers of unsigned characters.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern unsigned char** ut_realloc_1d_puchar (unsigned char** pa, unsigned int size);
+extern unsigned char** ut_realloc_1d_puchar (unsigned char** array, unsigned int size);
 
 /// \brief Reallocate a 1D array of pointers of pointers of double-precision numbers.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern double*** ut_realloc_1d_ppdouble (double*** pa, unsigned int size);
+extern double*** ut_realloc_1d_ppdouble (double*** array, unsigned int size);
 
 /// \brief Reallocate a 1D array of pointers of characters.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern char** ut_realloc_1d_pchar (char** pa, unsigned int size);
+extern char** ut_realloc_1d_pchar (char** array, unsigned int size);
 
 /// \brief Reallocate a 1D array of unsigned short integer numbers.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
 /// \details In case that size is 0, this function behaves like 'ut_free_1d_ushort'.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern unsigned short* ut_realloc_1d_ushort (unsigned short* pa, unsigned int size);
+extern unsigned short* ut_realloc_1d_ushort (unsigned short* array, unsigned int size);
 
 /// \brief Reallocate a 1D array of unsigned characters.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
 /// \details In case that size is 0, this function behaves like 'ut_free_1d_uchar'.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern unsigned char* ut_realloc_1d_uchar (unsigned char* pa, unsigned int size);
+extern unsigned char* ut_realloc_1d_uchar (unsigned char* array, unsigned int size);
 
 /// \brief Reallocate a 1D array of double-precision numbers.
 /// \details The content of the array is preserved up to the lesser of the new and old sizes.
 /// \details In case that size is 0, this function behaves like 'ut_free_1d_double'.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param size new size of the array.
 /// \return new pointer to the array.
-extern double* ut_realloc_1d (double* pa, unsigned int size);
+extern double* ut_realloc_1d (double* array, unsigned int size);
 
 
 
@@ -339,66 +339,66 @@ extern double* ut_realloc_1d (double* pa, unsigned int size);
 /// \brief Reallocate a 2D array of integer numbers to add a line.
 /// \details The function can only add one line at a time at the end of the array.
 /// \details The content of the array is preserved up to the old number of lines.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param line new number of lines of the array.
 /// \param col  number of columns of the array.
 /// \return new pointer to the array.
-extern int** ut_realloc_2d_int_addline (int** pa, int line, int col);
+extern int** ut_realloc_2d_int_addline (int** array, int line, int col);
 
 /// \brief Reallocate a 2D array of double-precision numbers to add a line.
 /// \details The function can only add one line at a time at the end of the array.
 /// \details The content of the array is preserved up to the old number of lines.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param line new number of lines of the array.
 /// \param col  number of columns of the array.
 /// \return new pointer to the array.
-extern double** ut_realloc_2d_addline (double** pa, int line, int col);
+extern double** ut_realloc_2d_addline (double** array, int line, int col);
 
 
 /// \brief Reallocate a 2D array of characters to add a line.
 /// \details The function can only add one line at a time at the end of the array.
 /// \details The content of the array is preserved up to the old number of lines.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param line new number of lines of the array.
 /// \param col  number of columns of the array.
 /// \return new pointer to the array.
-extern char** ut_realloc_2d_char_addline (char** pa, int line, int col);
+extern char** ut_realloc_2d_char_addline (char** array, int line, int col);
 
 
 
 /// \brief Reallocate a 2D array of integer numbers to delete lines.
 /// \details The content of the array is preserved up to the new number of lines.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param oldline old number of lines of the array.
 /// \param line new number of lines of the array.
 /// \return new pointer to the array.
-extern int** ut_realloc_2d_int_delline (int** pa, int oldline, int line);
+extern int** ut_realloc_2d_int_delline (int** array, int oldline, int line);
 
 
 /// \brief Reallocate a 2D array of double-precision numbers to delete lines.
 /// \details The content of the array is preserved up to the new number of lines.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param oldline old number of lines of the array.
 /// \param line new number of lines of the array.
 /// \return new pointer to the array.
-extern double** ut_realloc_2d_delline (double** pa, int oldline, int line);
+extern double** ut_realloc_2d_delline (double** array, int oldline, int line);
 
 
 /// \brief Reallocate a 2D array of unsigned short integer numbers to delete lines.
 /// \details The content of the array is preserved up to the new number of lines.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param oldline old number of lines of the array.
 /// \param line new number of lines of the array.
 /// \return new pointer to the array.
-extern unsigned short** ut_realloc_2d_ushort_delline (unsigned short **pa, int oldline, int line);
+extern unsigned short** ut_realloc_2d_ushort_delline (unsigned short **array, int oldline, int line);
 
 /// \brief Reallocate a 2D array of unsigned characters to delete lines.
 /// \details The content of the array is preserved up to the new number of lines.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param oldline old number of lines of the array.
 /// \param line new number of lines of the array.
 /// \return new pointer to the array.
-extern unsigned char** ut_realloc_2d_uchar_delline (unsigned char **pa, int oldline, int line);
+extern unsigned char** ut_realloc_2d_uchar_delline (unsigned char **array, int oldline, int line);
 
 
 
@@ -406,12 +406,12 @@ extern unsigned char** ut_realloc_2d_uchar_delline (unsigned char **pa, int oldl
 /// \brief Reallocate a 3D array of double-precision numbers to add a 2D-array in 1st dimension.
 /// \details The function can only add one 2D-array at a time at the end of the array.
 /// \details The content of the array is preserved.
-/// \param pa pointer to the array previously allocated.
+/// \param array pointer to the array previously allocated.
 /// \param line new number of lines of the array.
 /// \param col number of columns of the array.
 /// \param depth size of the 3rd dimension of the array.
 /// \return new pointer to the array.
-extern double*** ut_realloc_3d_addarray (double***pa, int line, int col, int depth);
+extern double*** ut_realloc_3d_addarray (double***array, int line, int col, int depth);
 
 
 #endif /* UT_ALLOC_H */

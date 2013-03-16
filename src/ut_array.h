@@ -61,6 +61,7 @@ extern int ut_array_1d_min2_index (double *, int);
 extern double ut_array_1d_max (double *, int);
 extern double ut_array_1d_mean (double *, int);
 extern double ut_array_1d_gmean (double *, int);
+extern double ut_array_1d_int_gmean (int *, int);
 extern double ut_array_1d_wmean (double *, double *, int);
 extern double ut_array_1d_stddev (double *, double, int);
 extern double ut_array_2d_stddev (double **, double, int, int);

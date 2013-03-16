@@ -649,6 +649,22 @@ ut_array_1d_gmean (double *a, int size)
 }
 
 double
+ut_array_1d_int_gmean (int *a, int size)
+{
+  int i;
+  double mean = 1;
+
+  if (size <= 0)
+    abort ();
+
+  for (i = 0; i < size; i++)
+    mean *= a[i];
+  mean = pow (mean, 1. / size);
+
+  return mean;
+}
+
+double
 ut_array_1d_wmean (double *a, double *w, int size)
 {
   int i;

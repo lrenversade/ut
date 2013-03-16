@@ -512,6 +512,14 @@ extern double ut_array_1d_mean (double *array, int size);
 extern double ut_array_1d_gmean (double *array, int size);
 //
 
+/// \brief Return the geometric mean value of an 1D array of integer numbers.
+/// \param array array to analyse.
+/// \param size size of the array.
+/// \return int geometric mean.
+///
+extern double ut_array_1d_int_gmean (int *array, int size);
+//
+
 /// \brief Return the ponderated mean value of an 1D array of double-precision numbers.
 /// \param array array to mean
 /// \param coeff coefficients of ponderation
@@ -627,6 +635,7 @@ extern double ut_array_2d_mean (double **a, int xsize, int ysize);
 ///
 ///
 ///
+
 extern double ut_array_2d_gmean (double **, int, int);
 //
 

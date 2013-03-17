@@ -3298,6 +3298,16 @@ ut_array_3d_int_1d (int*** array, int size1, int size2, int size3,
 }
 
 int
+ut_array_1d_set_3 (double* array, double v1, double v2, double v3)
+{
+  array[0] = v1;
+  array[1] = v2;
+  array[2] = v3;
+
+  return 0;
+}
+
+int
 ut_array_1d_int_set_3 (int* array, int v1, int v2, int v3)
 {
   array[0] = v1;

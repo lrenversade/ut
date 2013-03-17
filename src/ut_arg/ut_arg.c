@@ -7,10 +7,9 @@
 #include"ut_arg.h"
 #include"ut.h"
 
-int
-ut_arg_nextasint (char **argv, int *pi, char *option, int min, int max)
+void
+ut_arg_nextasint (char **argv, int *pi, char *option, int min, int max, int* pres)
 {
-  int res;
   int length;
   int i;
 
@@ -18,7 +17,7 @@ ut_arg_nextasint (char **argv, int *pi, char *option, int min, int max)
   (*pi)++;
 
   /* reading the argument and testing if it is an int */
-  if (sscanf (argv[*pi], "%d", &res) == 0)
+  if (sscanf (argv[*pi], "%d", pres) == 0)
     ut_arg_error (option, "not an integer value.");
 
   length = strlen (argv[*pi]);
@@ -27,59 +26,57 @@ ut_arg_nextasint (char **argv, int *pi, char *option, int min, int max)
       ut_arg_error (option, "not an integer value.");
 
   /* checking bounds */
-  if (res < min || res > max)
+  if (*pres < min || *pres > max)
     ut_arg_error (option, "bad integer value.");
 
-  return res;
+  return;
 }
 
-int
-ut_arg_nextaslogical (char **argv, int *pi, char *option)
+void
+ut_arg_nextaslogical (char **argv, int *pi, char *option, int* pres)
 {
-  return ut_arg_nextasint (argv, pi, option, 0, 1);
+  ut_arg_nextasint (argv, pi, option, 0, 1, pres);
+
+  return;
 }
 
 
-/* Same than NextArgAsInt but for reals. */
-double
-ut_arg_nextasreal (char **argv, int *pi, char *option, double min, double max)
+void
+ut_arg_nextasreal (char **argv, int *pi, char *option,
+		   double min, double max, double* pres)
 {
-  double res;
   double eps = 1e-15;
 
   /* incrementing i */
   (*pi)++;
 
   /* reading the argument and testing if it is a real */
-  if (sscanf (argv[*pi], "%lf", &res) == 0)
+  if (sscanf (argv[*pi], "%lf", pres) == 0)
     ut_arg_error (option, "not a real value.");
 
-  if (res < min - eps || res > max + eps)
+  if (*pres < min - eps || *pres > max + eps)
   {
     printf ("min = %f max = %f\n", min, max);
     ut_arg_error (option, "bad real value.");
   }
 
-  return res;
+  return;
 }
 
-/* Same than NextArgAsInt but for chars. */
-char *
-ut_arg_nextaschar (char **argv, int *pi, char *option)
+void
+ut_arg_nextasstring (char **argv, int *pi, char *option, char** pstring)
 {
-  char *res = ut_alloc_1d_char (1000);
-
   /* incrementing i */
   (*pi)++;
 
-  /* reading the argument and testing if it is an int */
-  if (sscanf (argv[*pi], "%s", res) == 0)
-    ut_arg_error (option, "not a char string value.");
+  // avoids warning and keeps consistency of the option with others.
+  option = option;
 
-  /*if(res<min-eps || res>max+eps) */
-  /*ut_arg_error(option); */
+  ut_free_1d_char (*pstring);
+  (*pstring) = ut_alloc_1d_char (strlen (argv[*pi]) + 1);
+  strcpy (*pstring, argv[*pi]);
 
-  return res;
+  return;
 }
 
 

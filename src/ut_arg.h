@@ -10,10 +10,10 @@
 #ifndef UT_ARG_H
 #define UT_ARG_H
 
-extern int ut_arg_nextaslogical (char **, int *, char *);
-extern int ut_arg_nextasint (char **, int *, char *, int, int);
-extern double ut_arg_nextasreal (char **, int *, char *, double, double);
-extern char *ut_arg_nextaschar (char **, int *, char *);
+extern void ut_arg_nextasint     (char **, int *, char *, int, int, int*);
+extern void ut_arg_nextaslogical (char **, int *, char *, int*);
+extern void ut_arg_nextasreal    (char **, int *, char *, double, double, double*);
+extern void ut_arg_nextasstring  (char **, int *, char *, char**);
 extern void ut_arg_badarg (void);
 extern void ut_arg_error (char *, char*);
 extern int ut_arg_listqty (char *);

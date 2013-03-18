@@ -1378,6 +1378,7 @@ extern int ut_array_1d_int_percent (int *array, int size, int *percent);
 extern int ut_array_3d_int_1d (int*** array, int size1, int size2, int size3,
                     int** parray1d);
 
+extern int ut_array_1d_set_3 (double* array, double v1, double v2, double v3);
 extern int ut_array_1d_int_set_3 (int* array, int v1, int v2, int v3);
 
 extern void ut_array_1d_int_set_id (int* array, int size);

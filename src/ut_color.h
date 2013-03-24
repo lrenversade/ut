@@ -6,3 +6,4 @@ extern int ut_color_name_rgb (char *, int *);
 extern int name2rgb (char *, int *);
 extern void rgb_intensity (int *, double, int *);
 extern int ut_color_scheme_val_color (char*, double, double, double, int*);
+extern void ut_color_palette (int qty, int** palette, double min, double max);

@@ -366,6 +366,23 @@ ut_array_2d_fscanfn_wcard (char *filename, double **a, int d1, int d2,
     ut_free_1d_int (val);
   }
 
+  // if file not found and filename is a `palette', fill the array with
+  // the colour palette.
+  else if (ut_string_inlist (wcard, ',', "colour") == 1
+	   && ! ut_file_exist (filename)
+	   && ! strcmp (filename, "palette"))
+  {
+    int i, j;
+    int** tmp = ut_alloc_2d_int (d1, 3);
+    ut_color_palette (d1, tmp, 0.2, 0.8);
+    
+    for (i = 0; i < d1; i++)
+      for (j = 0; j < 3; j++)
+	a[i][j] = tmp[i][j];
+
+    ut_free_2d_int (tmp, d1);
+  }
+
   else
   {
     // check that the file does not have more data than goes in the
@@ -644,6 +661,22 @@ ut_array_1d_gmean (double *a, int size)
   for (i = 0; i < size; i++)
     mean *= a[i];
   mean = pow (mean, 1. / size);
+
+  return mean;
+}
+
+double
+ut_array_1d_int_mean (int *a, int size)
+{
+  int i;
+  double mean = 0;
+
+  if (size <= 0)
+    abort ();
+
+  for (i = 0; i < size; i++)
+    mean += a[i];
+  mean /= size;
 
   return mean;
 }

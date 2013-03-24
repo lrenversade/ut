@@ -520,6 +520,13 @@ extern double ut_array_1d_gmean (double *array, int size);
 extern double ut_array_1d_int_gmean (int *array, int size);
 //
 
+/// \brief Get the mean value of a 1D array of integer numbers.
+/// \param array input array.
+/// \param size size of the array.
+/// \return mean value of the array.
+///
+extern double ut_array_1d_int_mean (int *array, int size);
+
 /// \brief Return the ponderated mean value of an 1D array of double-precision numbers.
 /// \param array array to mean
 /// \param coeff coefficients of ponderation

@@ -34,7 +34,6 @@ add_library (ut SHARED
   ut_mat/ut_mat.c
   ut_linalg/ut_linalg.c
   ut_num/ut_num.c
-  ut_legacy/ut_legacy.c
   ut_option/ut_option.c
   ut_png/ut_png.c        # PNG
   ut_print/ut_print.c

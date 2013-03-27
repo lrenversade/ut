@@ -951,6 +951,19 @@ ut_realloc_1d_ppdouble (double ***res, unsigned int line)
   return res;
 }
 
+int ***
+ut_realloc_1d_ppint (int ***res, unsigned int line)
+{
+  res = realloc (res, line * sizeof (int **));
+  if (!res)
+  {
+    printf ("memory allocation failed! (%d)\n", line);
+    abort ();
+  }
+
+  return res;
+}
+
 int **
 ut_realloc_2d_int_addline (int **array, int line, int col)
 {

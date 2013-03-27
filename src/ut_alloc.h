@@ -156,6 +156,7 @@ extern char* ut_realloc_1d_char (char*, unsigned int);
 extern int** ut_realloc_1d_pint (int**, unsigned int);
 extern unsigned short** ut_realloc_1d_pushort (unsigned short**, unsigned int);
 extern unsigned char** ut_realloc_1d_puchar (unsigned char**, unsigned int);
+extern int*** ut_realloc_1d_ppint (int***, unsigned int);
 extern double*** ut_realloc_1d_ppdouble (double***, unsigned int);
 extern char** ut_realloc_1d_pchar (char**, unsigned int);
 

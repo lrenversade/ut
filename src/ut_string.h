@@ -7,6 +7,7 @@
 extern int ut_string_fnr (char *, char, char);
 extern char* ut_string_paste (char *, char*);
 extern char* ut_string_array_paste (char **, int);
+extern char *ut_string_array_paste_separator(char **string, int qty, char separator);
 extern char* ut_string_array_paste_cmp (char** string, int qty);
 extern int ut_string_find (char*, char);
 extern int ut_string_finds (char*, char*);

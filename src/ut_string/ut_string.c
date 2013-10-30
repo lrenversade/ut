@@ -556,6 +556,31 @@ ut_string_array_paste (char** string, int qty)
   return res;
 }
 
+char *
+ut_string_array_paste_separator(char **string, int qty, char separator)
+{
+  int i;
+  char *res = NULL;
+  char *sep = ut_alloc_1d_char(2);
+  
+  sprintf(sep, "%c", separator);
+  
+  int length = 1;
+  for (i = 0; i < qty; i++)
+    length += strlen (string[i]) + 1;
+  
+  res = ut_alloc_1d_char (length);
+  for (i = 0; i < qty - 1; i++)
+  {
+    res = strcat (res, string[i]);
+    res = strcat (res, sep);
+  }
+  res = strcat (res, string[i]);
+  
+  ut_free_1d_char(sep);
+  return res;
+}
+
 char*
 ut_string_array_paste_cmp (char** string, int qty)
 {
